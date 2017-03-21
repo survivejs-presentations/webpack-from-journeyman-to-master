@@ -63,13 +63,67 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            Optimizing
+            <Link href="https://survivejs.com/webpack/optimizing">Optimizing</Link>
           </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Main Ideas
+            <Link href="https://survivejs.com/webpack/optimizing/minifying">Minifying</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/tree-shaking">Tree Shaking</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/separating-a-manifest">Separating a Manifest</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">Analyzing Build Statistics</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/optimizing/performance">Performance</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -78,13 +132,13 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            Output
+            <Link href="https://survivejs.com/webpack/output">Output</Link>
           </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Build Targets
+            <Link href="https://survivejs.com/webpack/output/targets">Build Targets</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -93,7 +147,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Library Output
+            <Link href="https://survivejs.com/webpack/library-output">Library Output</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -102,7 +156,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Multiple Pages
+            <Link href="https://survivejs.com/webpack/output/multiple-pages">Multiple Pages</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -111,58 +165,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Server Side Rendering
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
-            Techniques
-          </Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>
-            Dynamic Loading
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>
-            Web Workers
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>
-            Internationalization
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>
-            Testing
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>
-            Deploying Applications
+            <Link href="https://survivejs.com/webpack/output/server-side-rendering">Server Side Rendering</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -171,13 +174,13 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            Packages
+            <Link href="https://survivejs.com/webpack/techniques">Techniques</Link>
           </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Consuming Packages
+            <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -186,7 +189,34 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Authoring Packages
+            <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/techniques/i18n">Internationalization</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/techniques/testing">Testing</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/techniques/deploying">Deploying Applications</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -195,13 +225,13 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            Extending
+            <Link href="https://survivejs.com/webpack/packages">Packages</Link>
           </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Extending with Loaders
+            <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -210,7 +240,22 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Extending with Plugins
+            <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/extending">Extending</Link>
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/extending/loaders">Extending with Loaders</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -218,7 +263,16 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Link href="http://www.survivejs.com/">
+          <Heading size={1}>
+            <Link href="https://survivejs.com/webpack/extending/plugins">Extending with Plugins</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Link href="https://www.survivejs.com/">
             <Heading size={1}>
               SurviveJS
             </Heading>
