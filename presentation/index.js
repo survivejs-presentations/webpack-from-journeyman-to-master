@@ -5,24 +5,24 @@ import mapValues from "lodash/mapValues";
 // Import Spectacle Core tags
 import {
   Appear,
-  BlockQuote,
+  //BlockQuote,
   //Cite,
-  CodePane,
+  //CodePane,
   Deck,
   //Fill,
   Heading,
   Image,
-  Layout,
+  //Layout,
   Link,
   List,
   ListItem,
-  Markdown,
-  Quote,
-  Slide,
-  Table,
-  TableRow,
-  TableHeaderItem,
-  TableItem
+  //Markdown,
+  //Quote,
+  Slide
+  //Table,
+  //TableRow,
+  //TableHeaderItem,
+  //TableItem
   //Text
 } from "spectacle";
 
@@ -61,124 +61,78 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide transition={slideTransition}>
-          <Heading caps fit size={1}>
-            JavaScript Usage on Sites
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Optimizing
           </Heading>
-          <Markdown>
-        {`
-* 2011 - 38.2%
-* 2013 - 60.4%
-* 2015 - 70.5%
-* 2016 - 73.5%
-* Source: [W3Techs](http://w3techs.com/technologies/history_overview/javascript_library/all/y)
-        `}
-          </Markdown>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Appear fid="1">
-            <Heading size={2} caps fit>
-              Inline JavaScript
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={2} caps fit textColor="tertiary">
-              AJAX (async)
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit>
-              Single Page Applications
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit textColor="tertiary">
-              Universal JavaScript
-            </Heading>
-          </Appear>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="black">
-          <BlockQuote>
-            <Quote>Java is to JavaScript as car is to carpet</Quote>
-          </BlockQuote>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading caps fit size={1}>
-            Build Tools
-          </Heading>
-          <Layout>
-            <Table>
-              <thead>
-                <TableRow>
-                  <TableHeaderItem>1st Gen.</TableHeaderItem>
-                  <TableHeaderItem>2nd Gen.</TableHeaderItem>
-                  <TableHeaderItem>3rd Gen.</TableHeaderItem>
-                </TableRow>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableItem>Make</TableItem>
-                  <TableItem>Grunt</TableItem>
-                  <TableItem>Browserify</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Gulp</TableItem>
-                  <TableItem>Webpack</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Broccoli</TableItem>
-                  <TableItem>JSPM</TableItem>
-                </TableRow>
-              </tbody>
-            </Table>
-          </Layout>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            The Problem of Template
+            Main Ideas
           </Heading>
           <List>
-            <Appear><ListItem>Problem 1</ListItem></Appear>
-            <Appear><ListItem>Problem 2</ListItem></Appear>
-            <Appear><ListItem><Link href="https://facebook.github.io/flux/">Flux</Link> - Actions, stores, dispatcher</ListItem></Appear>
+            <Appear><ListItem>XXX</ListItem></Appear>
           </List>
         </Slide>
 
-        <Slide transition={slideTransition}>
-          <Image src={images.survivejs} margin="40px auto" height="324px" />
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Solution
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Output
           </Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={4}>
-            Minimal Demo
-          </Heading>
-          <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
-            margin="20px auto"
-          />
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            Exercises
+            Main Ideas
           </Heading>
           <List>
-            <Appear><ListItem>Exercise 1</ListItem></Appear>
-            <Appear><ListItem>*Exercise 2</ListItem></Appear>
-            <Appear><ListItem>**Exercise 3</ListItem></Appear>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Techniques
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            Main Ideas
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Packages
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            Main Ideas
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Extending
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>
+            Main Ideas
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
           </List>
         </Slide>
 
