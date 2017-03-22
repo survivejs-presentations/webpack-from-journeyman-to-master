@@ -233,7 +233,11 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">Analyzing Build Statistics</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>To know what your build consists of, generate <b>build statistics</b></ListItem></Appear>
+            <Appear><ListItem>Use <code>--json</code> for statistics</ListItem></Appear>
+            <Appear><ListItem>Use <code>--profile</code> to capture timing information</ListItem></Appear>
+            <Appear><ListItem>Node API gives access to statistics too and you can find a couple of plugins</ListItem></Appear>
+            <Appear><ListItem>Plenty of tools for analysis</ListItem></Appear>
           </List>
         </Slide>
 
