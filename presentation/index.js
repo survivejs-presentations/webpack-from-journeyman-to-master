@@ -205,7 +205,10 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/optimizing/separating-manifest">Separating a Manifest</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Webpack generates a <b>manifest</b> to keep track of entries</ListItem></Appear>
+            <Appear><ListItem>Including this to a <b>vendor</b> bundle can lead to invalidation if <b>app</b> bundle changes</ListItem></Appear>
+            <Appear><ListItem>It is better to extract it to file of its own or to inline it to HTML through a plugin</ListItem></Appear>
+            <Appear><ListItem><code>CommonsChunkPlugin</code> can do the job</ListItem></Appear>
           </List>
         </Slide>
 
