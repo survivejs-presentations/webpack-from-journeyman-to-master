@@ -384,8 +384,17 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/techniques/i18n">Internationalization</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>i18n vs. l10n</ListItem></Appear>
+            <Appear><ListItem>Static or dynamic?</ListItem></Appear>
+            <Appear><ListItem>How to translate?</ListItem></Appear>
+            <Appear><ListItem><code>I18nWebpackPlugin</code> and others</ListItem></Appear>
+            <Appear><ListItem><code>console.log(__('Hello world'));</code></ListItem></Appear>
           </List>
+          <Appear><CodePane lang="json">
+                  {`{
+  "Hello world": "Terve maailma"
+}`}
+          </CodePane></Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -393,7 +402,10 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/techniques/testing">Testing</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Integration with Mocha, Karma, and others</ListItem></Appear>
+            <Appear><ListItem>Consider generating <b>coverage</b> reports</ListItem></Appear>
+            <Appear><ListItem>Jest - Minimal setup, webpack specific features need care</ListItem></Appear>
+            <Appear><ListItem><b>Mocking</b> possible through <Link href="https://www.npmjs.com/package/sinon">Sinon</Link>, <Link href="https://www.npmjs.com/package/inject-loader">inject-loader</Link>, and <Link href="https://www.npmjs.com/package/rewire-webpack">rewire-webpack</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -402,7 +414,10 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/techniques/deploying">Deploying Applications</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Handle with or without webpack</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/gh-pages">gh-pages</Link> is handy for small projects that deploy to Git</ListItem></Appear>
+            <Appear><ListItem>Plugins for deploying to S3 and other environments</ListItem></Appear>
+            <Appear><ListItem><code>__webpack_public_path__</code> can be used for a dynamic <code>publicPath</code></ListItem></Appear>
           </List>
         </Slide>
 
