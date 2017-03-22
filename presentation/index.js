@@ -258,7 +258,7 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/optimizing/performance">Performance cont.</Link>
           </Heading>
           <List>
-            <Appear><ListItem>Parallelism through <Link href="https://www.npmjs.com/package/parallel-webpack">parallel-webpack</Link and <Link href="https://www.npmjs.com/package/happypack">happypack</Link></ListItem></Appear>
+            <Appear><ListItem>Parallelism through <Link href="https://www.npmjs.com/package/parallel-webpack">parallel-webpack</Link> and <Link href="https://www.npmjs.com/package/happypack">happypack</Link></ListItem></Appear>
             <Appear><ListItem>Consider faster source map variants or skipping even (new browsers)</ListItem></Appear>
             <Appear><ListItem>Skip polyfills during development</ListItem></Appear>
             <Appear><ListItem>Disable portions of an application you {"don't"} need</ListItem></Appear>
