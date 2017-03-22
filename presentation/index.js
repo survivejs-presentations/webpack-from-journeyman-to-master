@@ -145,8 +145,32 @@ bake();`}
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
           </Heading>
+          <CodePane lang="javascript">
+        {`var foo;
+
+// Not free due to "foo" above, not ok to replace
+if (foo === 'bar') {
+  console.log('bar');
+}
+
+// Free since you don't refer to "bar", ok to replace
+// Depending on "bar" is replaced, you'll get true/false
+// Minifier will drop if(false)
+if (bar === 'bar') {
+  console.log('bar');
+}`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Setting Environment Variables cont.
+          </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
+            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node environment</ListItem></Appear>
+            <Appear><ListItem>Possible through Babel too</ListItem></Appear>
+            <Appear><ListItem>Enables patterns like choosing a module based on build target</ListItem></Appear>
           </List>
         </Slide>
 
