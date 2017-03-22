@@ -7,12 +7,12 @@ import {
   Appear,
   //BlockQuote,
   //Cite,
-  //CodePane,
+  CodePane,
   Deck,
   //Fill,
   Heading,
   Image,
-  //Layout,
+  Layout,
   Link,
   List,
   ListItem,
@@ -68,25 +68,81 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
+            Performance Budgets
+          </Heading>
+          <CodePane lang="javascript">
+        {`{
+  performance: {
+    hints: 'warning', // 'error' or false are valid too
+    maxEntrypointSize: 100000, // in bytes
+    maxAssetSize: 100000, // in bytes
+  },
+},`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Budget Warnings
+          </Heading>
+          <CodePane lang="javascript">
+        {`...
+WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds
+the recommended limit (100 kB). This can impact web performance.
+Entrypoints:
+  app (156 kB)
+      vendor.js
+,      app.js
+,      app.css
+...`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/minifying">Minifying</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Minifying === How to convert code into a smaller form without losing anything essential?</ListItem></Appear>
+            <Appear><ListItem>Certain unsafe transformations can break code</ListItem></Appear>
+            <Appear><ListItem><code>UglifyJsPlugin</code>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">babili-webpack-plugin</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">webpack-closure-compiler</Link></ListItem></Appear>
+            <Appear><ListItem>CSS can be minified too through <Link href="https://www.npmjs.com/package/clean-css">clean-css</Link> and <Link href="http://cssnano.co">cssnano</Link></ListItem></Appear>
+            <Appear><ListItem>Same for HTML. See <Link href="https://www.npmjs.com/package/posthtml">posthtml</Link></ListItem></Appear>
           </List>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/tree-shaking">Tree Shaking</Link>
           </Heading>
+          <CodePane lang="javascript">
+        {`const shake = () => console.log('shake');
+const bake = () => console.log('bake');
+
+export { shake, bake };`}
+          </CodePane>
+          <Layout>shaking</Layout>
+          <CodePane lang="javascript">
+        {`import { bake } from './shake';
+
+bake();`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Tree Shaking cont.
+          </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
+            <Appear><ListItem>Potentially possible for <Link href="https://github.com/simlrh/dead-css-loader">CSS Modules</Link> too</ListItem></Appear>
+            <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything except module definitions</ListItem></Appear>
           </List>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
           </Heading>
           <List>
@@ -95,7 +151,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
           </Heading>
           <List>
@@ -104,7 +160,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/separating-manifest">Separating a Manifest</Link>
           </Heading>
           <List>
@@ -113,7 +169,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">Analyzing Build Statistics</Link>
           </Heading>
           <List>
@@ -122,7 +178,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/performance">Performance</Link>
           </Heading>
           <List>
@@ -137,7 +193,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/output/targets">Build Targets</Link>
           </Heading>
           <List>
@@ -146,7 +202,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/library-output">Library Output</Link>
           </Heading>
           <List>
@@ -155,7 +211,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/output/multiple-pages">Multiple Pages</Link>
           </Heading>
           <List>
@@ -164,7 +220,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/output/server-side-rendering">Server Side Rendering</Link>
           </Heading>
           <List>
@@ -179,7 +235,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
           </Heading>
           <List>
@@ -188,7 +244,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
           </Heading>
           <List>
@@ -197,7 +253,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/i18n">Internationalization</Link>
           </Heading>
           <List>
@@ -206,7 +262,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/testing">Testing</Link>
           </Heading>
           <List>
@@ -215,7 +271,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/deploying">Deploying Applications</Link>
           </Heading>
           <List>
@@ -230,7 +286,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages</Link>
           </Heading>
           <List>
@@ -239,7 +295,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages</Link>
           </Heading>
           <List>
@@ -254,7 +310,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/extending/loaders">Extending with Loaders</Link>
           </Heading>
           <List>
@@ -263,7 +319,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/extending/plugins">Extending with Plugins</Link>
           </Heading>
           <List>
