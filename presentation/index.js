@@ -246,7 +246,23 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/optimizing/performance">Performance</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Know what to optimize</ListItem></Appear>
+            <Appear><ListItem>Fast to implement tweaks first</ListItem></Appear>
+            <Appear><ListItem>More involved tweaks after</ListItem></Appear>
+            <Appear><ListItem>Measure impact</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/performance">Performance cont.</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Parallelism through <Link href="https://www.npmjs.com/package/parallel-webpack">parallel-webpack</Link and <Link href="https://www.npmjs.com/package/happypack">happypack</Link></ListItem></Appear>
+            <Appear><ListItem>Consider faster source map variants or skipping even (new browsers)</ListItem></Appear>
+            <Appear><ListItem>Skip polyfills during development</ListItem></Appear>
+            <Appear><ListItem>Disable portions of an application you {"don't"} need</ListItem></Appear>
+            <Appear><ListItem>Use DLLS for vendor dependencies (less to rebundle)</ListItem></Appear>
           </List>
         </Slide>
 
