@@ -277,7 +277,11 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/output/targets">Build Targets</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Not just web (default)</ListItem></Appear>
+            <Appear><ListItem><code>webworker</code> (no hashing, no DOM manipulation)</ListItem></Appear>
+            <Appear><ListItem><code>node</code> and <code>node-async</code> - Server Side Rendering</ListItem></Appear>
+            <Appear><ListItem>Desktop targets: <code>node-webkit</code>, <code>atom</code>, <code>electron</code> targets</ListItem></Appear>
+            <Appear><ListItem>Library targets (UMD etc.)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -286,7 +290,10 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/library-output">Library Output</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Controlled primarily through <code>output.library</code> and <code>output.libraryTarget</code></ListItem></Appear>
+            <Appear><ListItem>Defaults to <code>var</code></ListItem></Appear>
+            <Appear><ListItem>Other notable options include <code>window</code>, <code>commonjs</code>, <code>amd</code>, <code>umd</code>, and <code>jsonp</code></ListItem></Appear>
+            <Appear><ListItem>Also SystemJS compatible output is possible through <Link href="https://www.npmjs.com/package/webpack-system-register">webpack-system-register</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -295,7 +302,9 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/output/multiple-pages">Multiple Pages</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Separate configurations (multi-compiler mode), separate entries, <Link href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Applications</Link> (PWA)</ListItem></Appear>
+            <Appear><ListItem><code>HtmlWebpackPlugin</code> can do it</ListItem></Appear>
+            <Appear><ListItem>Going through separate entries allows code sharing and PWA</ListItem></Appear>
           </List>
         </Slide>
 
@@ -304,7 +313,11 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/output/server-side-rendering">Server Side Rendering</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Serve initial HTML, data payload instead of only SPA</ListItem></Appear>
+            <Appear><ListItem>Potential for better performance and Search Engine Optimization (SEO) benefits</ListItem></Appear>
+            <Appear><ListItem>Comes with technical complexity (how to handle styling, routing, frontend specific features)</ListItem></Appear>
+            <Appear><ListItem>Webpack can handle it all or just frontend</ListItem></Appear>
+            <Appear><ListItem>Higher level abstractions: <Link href="https://www.npmjs.com/package/next">Next.js</Link>, <Link href="https://www.npmjs.com/package/isomorphic-webpack">isomorphic-webpack</Link></ListItem></Appear>
           </List>
         </Slide>
 
