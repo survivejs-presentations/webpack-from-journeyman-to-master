@@ -63,7 +63,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/optimizing">Optimizing</Link>
+            <Link href="https://survivejs.com/webpack/optimizing" textColor="white">Optimizing</Link>
           </Heading>
         </Slide>
 
@@ -105,7 +105,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={1}>
-            <Link href="https://survivejs.com/webpack/optimizing/separating-a-manifest">Separating a Manifest</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/separating-manifest">Separating a Manifest</Link>
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
@@ -132,7 +132,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/output">Output</Link>
+            <Link href="https://survivejs.com/webpack/output" textColor="white">Output</Link>
           </Heading>
         </Slide>
 
@@ -174,7 +174,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/techniques">Techniques</Link>
+            <Link href="https://survivejs.com/webpack/techniques" textColor="white">Techniques</Link>
           </Heading>
         </Slide>
 
@@ -225,7 +225,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/packages">Packages</Link>
+            <Link href="https://survivejs.com/webpack/packages" textColor="white">Packages</Link>
           </Heading>
         </Slide>
 
@@ -249,7 +249,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/extending">Extending</Link>
+            <Link href="https://survivejs.com/webpack/extending" textColor="white">Extending</Link>
           </Heading>
         </Slide>
 
