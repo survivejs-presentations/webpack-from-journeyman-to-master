@@ -1,8 +1,8 @@
 {
-  "name": "Webpack - From Journeyman to Master",
+  "name": "template",
   "private": true,
   "version": "0.0.0",
-  "description": "Template",
+  "description": "Webpack - From Journeyman to Master",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
