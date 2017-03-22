@@ -331,18 +331,52 @@ if (bar === 'bar') {
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
           </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
+          <CodePane lang="javascript">
+        {`const req = require.context(
+  'json-loader!yaml-frontmatter-loader!./pages',
+  true, // Load files recursively. Pass false to skip recursion.
+  /^\.\/.*\.md$/ // Match files ending with .md.
+);
+
+req.keys(); // ['./demo.md', './another-demo.md']
+req.id; // 42
+
+// {title: 'Demo', body: '# Demo page\nDemo content\n\n'}
+const demoPage = req('./demo.md');
+
+// Partial imports are possible too
+const target = 'fi'
+import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
+          </CodePane>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
           </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
+          <Layout>Host:</Layout>
+          <CodePane lang="javascript">
+      {`import Worker from 'worker-loader!./worker';
+
+const worker = new Worker();
+
+worker.addEventListener(
+  'message',
+  ({ data: { text } }) => {
+    // Do something with text now
+  }
+);
+
+worker.postMessage({ text: state.text });`}
+          </CodePane>
+          <Layout>Worker:</Layout>
+          <CodePane lang="javascript">
+      {`self.onmessage = ({ data: { text } }) => {
+  // Append the given text to itself to prove
+  // the worker does its thing.
+  self.postMessage({ text: text + text });
+};`}
+          </CodePane>
         </Slide>
 
         <Slide transition={slideTransition}>
