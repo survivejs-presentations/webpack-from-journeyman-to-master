@@ -495,7 +495,56 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/extending/loaders">Extending with Loaders</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/loader-runner">loader-runner</Link> is a starting point</ListItem></Appear>
+            <Appear><ListItem>Run against webpack to match environment (differs a little)</ListItem></Appear>
+            <Appear><ListItem><code>module.exports = (input) => input + input;</code></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Running Loaders
+          </Heading>
+          <CodePane lang="javascript">
+        {`const fs = require('fs');
+const { runLoaders } = require('loader-runner');
+
+runLoaders({
+  resource: './demo.txt',
+  loaders: [
+    path.resolve(__dirname, './loaders/demo-loader'),
+  ],
+  readResource: fs.readFile.bind(fs),
+},
+(err, result) => err ?
+  console.error(err) :
+  console.log(result)
+);`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Example Output
+          </Heading>
+          <CodePane lang="javascript">
+        {`{ result: [ 'foobar\nfoobar\n' ],
+  resourceBuffer: <Buffer 66 6f 6f 62 61 72 0a>,
+  cacheable: true,
+  fileDependencies: [ './demo.txt' ],
+  contextDependencies: [] }`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Loader API
+          </Heading>
+          <List>
+            <Appear><ListItem>Injected through <code>this</code> :(</ListItem></Appear>
+            <Appear><ListItem>Examples: <code>this.async()</code>, <code>this.emitFile(url, content)</code></ListItem></Appear>
+            <Appear><ListItem>Helpers in <Link href="https://www.npmjs.com/package/loader-utils">loader-utils</Link> and <Link href="https://www.npmjs.com/package/schema-utils">schema-utils</Link></ListItem></Appear>
+            <Appear><ListItem>Consider using <Link href="https://www.npmjs.com/package/webpack-defaults">webpack-defaults</Link> as a starting point</ListItem></Appear>
           </List>
         </Slide>
 
@@ -504,8 +553,28 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/extending/plugins">Extending with Plugins</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Plugins provide access to <code>compiler</code> and <code>compilation</code></ListItem></Appear>
+            <Appear><ListItem>Webpack itself is a collection of plugins (<Link href="https://www.npmjs.com/package/tapable">tapable</Link>)</ListItem></Appear>
+            <Appear><ListItem>Development has to happen against webpack itself</ListItem></Appear>
+            <Appear><ListItem><code>compilation.warnings</code>, <code>compilation.errors</code></ListItem></Appear>
+            <Appear><ListItem>Plugins can have plugins too: <code>HtmlWebpackPlugin</code></ListItem></Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Plugin Example
+          </Heading>
+          <CodePane lang="javascript">
+        {`module.exports = class DemoPlugin {
+  constructor(options) {
+    this.options = options;
+  }
+  apply() {
+    console.log('apply', this.options);
+  }
+};`}
+          </CodePane>
         </Slide>
 
         <Slide transition={slideTransition}>
