@@ -429,10 +429,35 @@ worker.postMessage({ text: state.text });`}
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            Understanding SemVer
+          </Heading>
+          <List>
+            <Appear><ListItem>SemVer - <code>major.minor.patch</code></ListItem></Appear>
+            <Appear><ListItem>ComVer - <code>notCompatible.compatible</code></ListItem></Appear>
+            <Appear><ListItem>EmoVer - <code>emotional.notEmotional</code></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Take care with version ranges</ListItem></Appear>
+            <Appear><ListItem>Consider locking dependencies (Yarn <code>lockfile</code>, npm <code>shrinkwrap</code>)</ListItem></Appear>
+            <Appear><ListItem>Keep dependencies up to date ({"there's"} tooling for this)</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages with Webpack</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
+            <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code> through configuration</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link> <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code> for globals</ListItem></Appear>
+            <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code>. <Link href="https://www.npmjs.com/package/null-loader">null-loader</Link> can be useful too.</ListItem></Appear>
           </List>
         </Slide>
 
@@ -441,7 +466,21 @@ worker.postMessage({ text: state.text });`}
             <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
+            <Appear><ListItem>Publishing is easy but take care (SemVer again)</ListItem></Appear>
+            <Appear><ListItem>Publish only what is needed</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/semantic-release">semantic-release</Link>, <Link href="https://www.npmjs.com/package/dont-break">dont-break</Link></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages with Webpack</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
+            <Appear><ListItem>Babel can be used to generate Node friendly build (separate files)</ListItem></Appear>
+            <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
           </List>
         </Slide>
 
