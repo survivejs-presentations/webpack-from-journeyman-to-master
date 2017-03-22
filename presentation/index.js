@@ -214,6 +214,22 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            Records
+          </Heading>
+          <List>
+            <Appear><ListItem>Records allow webpack to keep track of module ids across builds</ListItem></Appear>
+            <Appear><ListItem>Necessary if you use code splitting</ListItem></Appear>
+            <Appear><ListItem>Problem: you have a new file (<b>records.json</b>) to manage</ListItem></Appear>
+          </List>
+          <Appear><CodePane lang="javascript">
+        {`{
+  recordsPath: 'records.json',
+},`}
+          </CodePane></Appear>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">Analyzing Build Statistics</Link>
           </Heading>
           <List>
