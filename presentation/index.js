@@ -287,7 +287,7 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/library-output">Library Output</Link>
+            <Link href="https://survivejs.com/webpack/output/library-output">Library Output</Link>
           </Heading>
           <List>
             <Appear><ListItem>Controlled primarily through <code>output.library</code> and <code>output.libraryTarget</code></ListItem></Appear>
