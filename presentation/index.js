@@ -176,10 +176,27 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            Placeholders
+          </Heading>
+          <CodePane lang="javascript">
+        {`{
+  output: {
+    path: PATHS.build,
+    filename: '[name].[chunkhash].js',
+  },
+},`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Integrating a hash to a filename allow cache busting</ListItem></Appear>
+            <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
+            <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
+            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module ids</ListItem></Appear>
           </List>
         </Slide>
 
