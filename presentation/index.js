@@ -122,7 +122,7 @@ const bake = () => console.log('bake');
 
 export { shake, bake };`}
           </CodePane>
-          <Layout>shaking</Layout>
+          <Layout>shake it with</Layout>
           <CodePane lang="javascript">
         {`import { bake } from './shake';
 
@@ -168,9 +168,9 @@ if (bar === 'bar') {
           </Heading>
           <List>
             <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
-            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node environment</ListItem></Appear>
+            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node</ListItem></Appear>
             <Appear><ListItem>Possible through Babel too</ListItem></Appear>
-            <Appear><ListItem>Enables patterns like choosing a module based on build target</ListItem></Appear>
+            <Appear><ListItem>Enables patterns like choosing a module based on target</ListItem></Appear>
           </List>
         </Slide>
 
@@ -193,7 +193,7 @@ if (bar === 'bar') {
             <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
           </Heading>
           <List>
-            <Appear><ListItem>Integrating a hash to a filename allow cache busting</ListItem></Appear>
+            <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
             <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
             <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
             <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module ids</ListItem></Appear>
