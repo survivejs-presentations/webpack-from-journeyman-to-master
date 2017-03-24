@@ -352,7 +352,10 @@ if (bar === 'bar') {
             Recap
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Not just web, also other <b>targets</b></ListItem></Appear>
+            <Appear><ListItem>Multiple options for <b>library</b> authors</ListItem></Appear>
+            <Appear><ListItem>Multi-page setups are possible, PWAs the next step?</ListItem></Appear>
+            <Appear><ListItem>SSR with webpack in front or also in server</ListItem></Appear>
           </List>
         </Slide>
 
@@ -461,7 +464,11 @@ worker.postMessage({ text: state.text });`}
             Recap
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem><b>Dynamic loading</b> for extra flexibility</ListItem></Appear>
+            <Appear><ListItem><b>Web workers</b> through a loader</ListItem></Appear>
+            <Appear><ListItem>Multiple options for <b>i18n</b></ListItem></Appear>
+            <Appear><ListItem>Interation with multiple <b>testing</b> tools</ListItem></Appear>
+            <Appear><ListItem><b>Deploy</b> with or without webpack</ListItem></Appear>
           </List>
         </Slide>
 
