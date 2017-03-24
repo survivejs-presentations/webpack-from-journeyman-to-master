@@ -714,7 +714,10 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/comparison">Comparison of Build Tools</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem><b>Task runners</b> and <b>bundlers</b></ListItem></Appear>
+            <Appear><ListItem>They can completement each other. You can also defer task running to npm.</ListItem></Appear>
+            <Appear><ListItem>Evolution from generic tools like Make to specific ones like Browserify or webpack</ListItem></Appear>
+            <Appear><ListItem>A lot of development going on as new tools emerge</ListItem></Appear>
           </List>
         </Slide>
 
@@ -723,7 +726,11 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/configuring-hmr">Configuring Hot Module Replacement</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>HMR allows patching of the application while it is running</ListItem></Appear>
+            <Appear><ListItem>Run WDS in <b>hot</b> mode</ListItem></Appear>
+            <Appear><ListItem>Provide hot updates through webpack using <code>HotModuleReplacementPlugin</code></ListItem></Appear>
+            <Appear><ListItem>The client has to hook into WDS scripts (WDS <code>inline</code>)</ListItem></Appear>
+            <Appear><ListItem>The client has to implement the HMR interface through <code>module.hot.accept</code></ListItem></Appear>
           </List>
         </Slide>
 
@@ -732,7 +739,9 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/hmr-with-react">Hot Module Replacement with React</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/react-hot-loader">react-hot-loader</Link> does the hard part</ListItem></Appear>
+            <Appear><ListItem>You have to connect it with Babel, webpack, and application</ListItem></Appear>
+            <Appear><ListItem>react-hot-loader 3 is still in beta - Rough edges to work around.</ListItem></Appear>
           </List>
         </Slide>
 
@@ -741,7 +750,9 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/customizing-eslint">Customizing ESLint</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Skip rules locally (exceptions). Do not overuse, though.</ListItem></Appear>
+            <Appear><ListItem>Enable specific environments either through local overrides or through configuration</ListItem></Appear>
+            <Appear><ListItem>Extend through plugin interface</ListItem></Appear>
           </List>
         </Slide>
 
@@ -750,7 +761,9 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/searching-with-react">Searching with React</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Indexing static content through <Link href="http://lunrjs.com/">lunr</Link> is enough</ListItem></Appear>
+            <Appear><ListItem>Good use case for <code>import()</code></ListItem></Appear>
+            <Appear><ListItem>Enough for small static sites</ListItem></Appear>
           </List>
         </Slide>
 
@@ -759,16 +772,9 @@ module.exports = class DemoPlugin {
             <Link href="https://survivejs.com/webpack/appendices/troubleshooting">Troubleshooting</Link>
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Follow a debugging process. This captures most problems.</ListItem></Appear>
+            <Appear><ListItem>If you found a real issue, take care in reporting it well</ListItem></Appear>
+            <Appear><ListItem>Figure out whether the problem is on your side or in dependencies</ListItem></Appear>
           </List>
         </Slide>
 
