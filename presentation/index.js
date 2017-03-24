@@ -132,7 +132,7 @@ bake();`}
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            Tree Shaking cont.
+            <Link href="https://survivejs.com/webpack/optimizing/tree-shaking">Tree Shaking</Link>
           </Heading>
           <List>
             <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
@@ -164,7 +164,7 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            Setting Environment Variables cont.
+            Setting Environment Variables
           </Heading>
           <List>
             <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
@@ -255,7 +255,7 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/performance">Performance cont.</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/performance">Performance</Link>
           </Heading>
           <List>
             <Appear><ListItem>Parallelism through <Link href="https://www.npmjs.com/package/parallel-webpack">parallel-webpack</Link> and <Link href="https://www.npmjs.com/package/happypack">happypack</Link></ListItem></Appear>
