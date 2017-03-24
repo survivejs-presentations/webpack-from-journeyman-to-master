@@ -313,6 +313,17 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/output/bundling-libraries">Bundling Libraries</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Webpack supports multiple library output options (<code>output</code>)</ListItem></Appear>
+            <Appear><ListItem>Generate <b>minified</b>/<b>non-minified</b> versions for standalone distribution</ListItem></Appear>
+            <Appear><ListItem><b>UMD</b> is the most generic output target (CommonJS, AMD, global)</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/output/library-output">Library Output</Link>
           </Heading>
           <List>
@@ -502,13 +513,13 @@ worker.postMessage({ text: state.text });`}
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages with Webpack</Link>
+            <Link href="https://survivejs.com/webpack/packages/consuming-techniques/">Consuming Packages with Webpack</Link>
           </Heading>
           <List>
             <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
             <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code> through configuration</ListItem></Appear>
             <Appear><ListItem><Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link> <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code> for globals</ListItem></Appear>
-            <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code>. <Link href="https://www.npmjs.com/package/null-loader">null-loader</Link> can be useful too.</ListItem></Appear>
+            <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
           </List>
         </Slide>
 
@@ -526,7 +537,7 @@ worker.postMessage({ text: state.text });`}
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages with Webpack</Link>
+            <Link href="https://survivejs.com/webpack/packages/authoring-techniques">Authoring Packages with Webpack</Link>
           </Heading>
           <List>
             <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
@@ -540,7 +551,21 @@ worker.postMessage({ text: state.text });`}
             Recap
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Understand <b>SemVer</b> but also <b>lock</b> your dependencies</ListItem></Appear>
+            <Appear><ListItem>Keep dependencies up to date through tooling. Remember to test well for regressions</ListItem></Appear>
+            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> options</ListItem></Appear>
+            <Appear><ListItem>There are specific loaders and plugins to help with globals</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
+            <Appear><ListItem>Take care when publishing (do not break SemVer, publish only what is needed, automate)</ListItem></Appear>
+            <Appear><ListItem>Skip bundling <code>externals</code>, consider Babel build, <code>postinstall</code></ListItem></Appear>
           </List>
         </Slide>
 
