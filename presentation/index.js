@@ -84,7 +84,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            Budget Warnings
+            Budget Warnings/Errors
           </Heading>
           <CodePane lang="javascript">
         {`...
@@ -196,7 +196,7 @@ if (bar === 'bar') {
             <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
             <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
             <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
-            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module ids</ListItem></Appear>
+            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module IDs</ListItem></Appear>
           </List>
         </Slide>
 
@@ -217,7 +217,7 @@ if (bar === 'bar') {
             Records
           </Heading>
           <List>
-            <Appear><ListItem>Records allow webpack to keep track of module ids across builds</ListItem></Appear>
+            <Appear><ListItem>Records allow webpack to keep track of module IDs across builds</ListItem></Appear>
             <Appear><ListItem>Necessary if you use code splitting</ListItem></Appear>
             <Appear><ListItem>Problem: you have a new file (<b>records.json</b>) to manage</ListItem></Appear>
           </List>
@@ -263,6 +263,32 @@ if (bar === 'bar') {
             <Appear><ListItem>Skip polyfills during development</ListItem></Appear>
             <Appear><ListItem>Disable portions of an application you {"don't"} need</ListItem></Appear>
             <Appear><ListItem>Use DLLS for vendor dependencies (less to rebundle)</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>Set a <b>performance budget</b> to track bundle sizes (terminating a build is possible)</ListItem></Appear>
+            <Appear><ListItem><b>Minify</b> code to serve smaller payloads (gzip is another win)</ListItem></Appear>
+            <Appear><ListItem>You can minify CSS and HTML too</ListItem></Appear>
+            <Appear><ListItem><b>Tree shake</b> unnecessary pieces of code (ES6 modules only)</ListItem></Appear>
+            <Appear><ListItem>Use <b>environment variables</b> to implement <b>target specific tweaks</b> and <b>feature flags</b></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>Add <b>hashes</b> to filenames to bust caches</ListItem></Appear>
+            <Appear><ListItem>Separate a <b>manifest</b> to improve caching behavior</ListItem></Appear>
+            <Appear><ListItem>Track <b>records</b> to reuse module ID info </ListItem></Appear>
+            <Appear><ListItem><b>Analyze</b> build statistics to understand what your builds are made of</ListItem></Appear>
+            <Appear><ListItem><b>Know</b> what to optimize and tweak accordingly while measuring impact</ListItem></Appear>
           </List>
         </Slide>
 
@@ -318,6 +344,15 @@ if (bar === 'bar') {
             <Appear><ListItem>Comes with technical complexity (how to handle styling, routing, frontend specific features)</ListItem></Appear>
             <Appear><ListItem>Webpack can handle it all or just frontend</ListItem></Appear>
             <Appear><ListItem>Higher level abstractions: <Link href="https://www.npmjs.com/package/next">Next.js</Link>, <Link href="https://www.npmjs.com/package/isomorphic-webpack">isomorphic-webpack</Link></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
           </List>
         </Slide>
 
@@ -421,6 +456,15 @@ worker.postMessage({ text: state.text });`}
           </List>
         </Slide>
 
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
             <Link href="https://survivejs.com/webpack/packages" textColor="white">Packages</Link>
@@ -481,6 +525,15 @@ worker.postMessage({ text: state.text });`}
             <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
             <Appear><ListItem>Babel can be used to generate Node friendly build (separate files)</ListItem></Appear>
             <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
           </List>
         </Slide>
 
@@ -575,6 +628,75 @@ runLoaders({
   }
 };`}
           </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/appendices" textColor="white">Appendices</Link>
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/comparison">Comparison of Build Tools</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/configuring-hmr">Configuring Hot Module Replacement</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/hmr-with-react">Hot Module Replacement with React</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/customizing-eslint">Customizing ESLint</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/searching-with-react">Searching with React</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/appendices/troubleshooting">Troubleshooting</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
