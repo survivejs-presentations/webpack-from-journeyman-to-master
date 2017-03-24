@@ -582,7 +582,9 @@ worker.postMessage({ text: state.text });`}
           <List>
             <Appear><ListItem><Link href="https://www.npmjs.com/package/loader-runner">loader-runner</Link> is a starting point</ListItem></Appear>
             <Appear><ListItem>Run against webpack to match environment (differs a little)</ListItem></Appear>
-            <Appear><ListItem><code>module.exports = (input) => input + input;</code></ListItem></Appear>
+            <Appear><ListItem><code>module.exports = input => input + input;</code></ListItem></Appear>
+            <Appear><ListItem>pitch/execute === capture/bubble</ListItem></Appear>
+            <Appear><ListItem>Both sync and async loaders are possible</ListItem></Appear>
           </List>
         </Slide>
 
@@ -664,10 +666,40 @@ runLoaders({
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            Writing Files with a Plugin
+          </Heading>
+          <CodePane lang="javascript">
+        {`const { RawSource } = require('webpack-sources');
+
+module.exports = class DemoPlugin {
+  constructor(options) {
+    this.options = options;
+  }
+  apply(compiler) {
+    const { name } = this.options;
+
+    compiler.plugin('emit', (compilation, cb) => {
+      console.log(compilation);
+
+      compilation.assets[name] = new RawSource('demo');
+
+      cb();
+    });
+  }
+};`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             Recap
           </Heading>
           <List>
-            <Appear><ListItem>XXX</ListItem></Appear>
+            <Appear><ListItem>Loaders are a good starting point</ListItem></Appear>
+            <Appear><ListItem>Event model follows the DOM (capture/bubble)</ListItem></Appear>
+            <Appear><ListItem>Sync/async processing possible. Enough for basic transformations.</ListItem></Appear>
+            <Appear><ListItem>Plugins give greater access through <b>runtime hooks</b> (<code>compiler</code>, <code>compilation</code>)</ListItem></Appear>
+            <Appear><ListItem>Plugins can have plugins too</ListItem></Appear>
           </List>
         </Slide>
 
@@ -725,6 +757,15 @@ runLoaders({
         <Slide transition={slideTransition}>
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/appendices/troubleshooting">Troubleshooting</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>XXX</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
           </Heading>
           <List>
             <Appear><ListItem>XXX</ListItem></Appear>
