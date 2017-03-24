@@ -164,7 +164,7 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            Setting Environment Variables
+            <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
           </Heading>
           <List>
             <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
