@@ -61,6 +61,14 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
+        <Slide transition={slideTransition}>
+          <Link href="https://presentations.survivejs.com/webpack-from-apprentice-to-journeyman">
+            <Heading size={1} fit>
+              Check the previous presentation first
+            </Heading>
+          </Link>
+        </Slide>
+
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
             <Link href="https://survivejs.com/webpack/optimizing" textColor="white">Optimizing</Link>
@@ -143,10 +151,10 @@ bake();`}
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
           </Heading>
           <CodePane lang="javascript">
-        {`var foo;
+        {`let foo;
 
 // Not free due to "foo" above, not ok to replace
 if (foo === 'bar') {
@@ -164,7 +172,7 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/setting-environment-variables">Setting Environment Variables</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
           </Heading>
           <List>
             <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
@@ -206,8 +214,8 @@ if (bar === 'bar') {
           </Heading>
           <List>
             <Appear><ListItem>Webpack generates a <b>manifest</b> to keep track of entries</ListItem></Appear>
-            <Appear><ListItem>Including this to a <b>vendor</b> bundle can lead to invalidation if <b>app</b> bundle changes</ListItem></Appear>
-            <Appear><ListItem>It is better to extract it to file of its own or to inline it to HTML through a plugin</ListItem></Appear>
+            <Appear><ListItem>Manifest in a <b>vendor</b> bundle can lead to invalidation if <b>app</b> bundle changes!</ListItem></Appear>
+            <Appear><ListItem>Extract to a file or inline to HTML through a plugin</ListItem></Appear>
             <Appear><ListItem><code>CommonsChunkPlugin</code> can do the job</ListItem></Appear>
           </List>
         </Slide>
@@ -217,8 +225,8 @@ if (bar === 'bar') {
             Records
           </Heading>
           <List>
-            <Appear><ListItem>Records allow webpack to keep track of module IDs across builds</ListItem></Appear>
-            <Appear><ListItem>Necessary if you use code splitting</ListItem></Appear>
+            <Appear><ListItem>Records allow to <b>keep track of module IDs</b> across builds</ListItem></Appear>
+            <Appear><ListItem>Necessary if you use <b>code splitting</b></ListItem></Appear>
             <Appear><ListItem>Problem: you have a new file (<b>records.json</b>) to manage</ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
@@ -259,10 +267,10 @@ if (bar === 'bar') {
           </Heading>
           <List>
             <Appear><ListItem>Parallelism through <Link href="https://www.npmjs.com/package/parallel-webpack">parallel-webpack</Link> and <Link href="https://www.npmjs.com/package/happypack">happypack</Link></ListItem></Appear>
-            <Appear><ListItem>Consider faster source map variants or skipping even (new browsers)</ListItem></Appear>
-            <Appear><ListItem>Skip polyfills during development</ListItem></Appear>
-            <Appear><ListItem>Disable portions of an application you {"don't"} need</ListItem></Appear>
-            <Appear><ListItem>Use DLLS for vendor dependencies (less to rebundle)</ListItem></Appear>
+            <Appear><ListItem>Consider <b>faster source map variants</b> or skipping even</ListItem></Appear>
+            <Appear><ListItem><b>Skip polyfills</b> during development</ListItem></Appear>
+            <Appear><ListItem><b>Disable portions</b> of an application you {"don't"} need</ListItem></Appear>
+            <Appear><ListItem>Use <b>DLLs</b> for vendor dependencies (less to rebundle)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -273,7 +281,7 @@ if (bar === 'bar') {
           <List>
             <Appear><ListItem>Set a <b>performance budget</b> to track bundle sizes (terminating a build is possible)</ListItem></Appear>
             <Appear><ListItem><b>Minify</b> code to serve smaller payloads (gzip is another win)</ListItem></Appear>
-            <Appear><ListItem>You can minify CSS and HTML too</ListItem></Appear>
+            <Appear><ListItem>You can <b>minify</b> CSS and HTML too</ListItem></Appear>
             <Appear><ListItem><b>Tree shake</b> unnecessary pieces of code (ES6 modules only)</ListItem></Appear>
             <Appear><ListItem>Use <b>environment variables</b> to implement <b>target specific tweaks</b> and <b>feature flags</b></ListItem></Appear>
           </List>
@@ -287,7 +295,7 @@ if (bar === 'bar') {
             <Appear><ListItem>Add <b>hashes</b> to filenames to bust caches</ListItem></Appear>
             <Appear><ListItem>Separate a <b>manifest</b> to improve caching behavior</ListItem></Appear>
             <Appear><ListItem>Track <b>records</b> to reuse module ID info </ListItem></Appear>
-            <Appear><ListItem><b>Analyze</b> build statistics to understand what your builds are made of</ListItem></Appear>
+            <Appear><ListItem><b>Analyze</b> build statistics to understand your builds</ListItem></Appear>
             <Appear><ListItem><b>Know</b> what to optimize and tweak accordingly while measuring impact</ListItem></Appear>
           </List>
         </Slide>
@@ -318,7 +326,7 @@ if (bar === 'bar') {
           <List>
             <Appear><ListItem>Webpack supports multiple library output options (<code>output</code>)</ListItem></Appear>
             <Appear><ListItem>Generate <b>minified</b>/<b>non-minified</b> versions for standalone distribution</ListItem></Appear>
-            <Appear><ListItem><b>UMD</b> is the most generic output target (CommonJS, AMD, global)</ListItem></Appear>
+            <Appear><ListItem><b>UMD</b> is the most generic output target (CommonJS, AMD, global in one)</ListItem></Appear>
           </List>
         </Slide>
 
