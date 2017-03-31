@@ -39,7 +39,9 @@ require("./custom.css");
 
 const slideTransition = ["slide"];
 const images = mapValues({
-  survivejs: require("../images/survivejs.png")
+  survivejs: require("../images/survivejs.png"),
+  pwa1: require("../images/pwa1.png"),
+  pwa2: require("../images/pwa2.png")
 }, (v) => v.replace("/", ""));
 
 preloader(images);
@@ -349,8 +351,22 @@ if (bar === 'bar') {
           <List>
             <Appear><ListItem>Separate configurations (multi-compiler mode), separate entries, <Link href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Applications</Link> (PWA)</ListItem></Appear>
             <Appear><ListItem><code>HtmlWebpackPlugin</code> can do it</ListItem></Appear>
-            <Appear><ListItem>Going through separate entries allows code sharing and PWA</ListItem></Appear>
+            <Appear><ListItem>Going through separate entries allows code sharing and <Link href="https://github.com/webpack/webpack-pwa">PWA</Link></ListItem></Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://github.com/webpack/webpack-pwa">PWA - App Shell</Link>
+          </Heading>
+          <Image src={images.pwa1} margin="40px auto" height="444px" />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://github.com/webpack/webpack-pwa">PWA - Page Shell</Link>
+          </Heading>
+          <Image src={images.pwa2} margin="40px auto" height="444px" />
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -359,7 +375,7 @@ if (bar === 'bar') {
           </Heading>
           <List>
             <Appear><ListItem>Serve initial HTML, data payload instead of only SPA</ListItem></Appear>
-            <Appear><ListItem>Potential for better performance and Search Engine Optimization (SEO) benefits</ListItem></Appear>
+            <Appear><ListItem>Potential for better performance and <b>Search Engine Optimization</b> (SEO) benefits</ListItem></Appear>
             <Appear><ListItem>Comes with technical complexity (how to handle styling, routing, frontend specific features)</ListItem></Appear>
             <Appear><ListItem>Webpack can handle it all or just frontend</ListItem></Appear>
             <Appear><ListItem>Higher level abstractions: <Link href="https://www.npmjs.com/package/next">Next.js</Link>, <Link href="https://www.npmjs.com/package/isomorphic-webpack">isomorphic-webpack</Link></ListItem></Appear>
@@ -411,7 +427,7 @@ import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
           </Heading>
-          <Layout>Host:</Layout>
+          <div>Host</div>
           <CodePane lang="javascript">
       {`import Worker from 'worker-loader!./worker';
 
@@ -426,7 +442,7 @@ worker.addEventListener(
 
 worker.postMessage({ text: state.text });`}
           </CodePane>
-          <Layout>Worker:</Layout>
+          <div>Worker</div>
           <CodePane lang="javascript">
       {`self.onmessage = ({ data: { text } }) => {
   // Append the given text to itself to prove
@@ -520,7 +536,7 @@ worker.postMessage({ text: state.text });`}
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
+          <Heading size={2} fit>
             <Link href="https://survivejs.com/webpack/packages/consuming-techniques/">Consuming Packages with Webpack</Link>
           </Heading>
           <List>
@@ -544,7 +560,7 @@ worker.postMessage({ text: state.text });`}
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
+          <Heading size={2} fit>
             <Link href="https://survivejs.com/webpack/packages/authoring-techniques">Authoring Packages with Webpack</Link>
           </Heading>
           <List>
@@ -743,7 +759,7 @@ module.exports = class DemoPlugin {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
+          <Heading size={2} fit>
             <Link href="https://survivejs.com/webpack/appendices/hmr-with-react">Hot Module Replacement with React</Link>
           </Heading>
           <List>
