@@ -71,6 +71,20 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Topics
+          </Heading>
+          <List>
+            <Appear><ListItem>Optimizing</ListItem></Appear>
+            <Appear><ListItem>Output</ListItem></Appear>
+            <Appear><ListItem>Techniques</ListItem></Appear>
+            <Appear><ListItem>Packages</ListItem></Appear>
+            <Appear><ListItem>Extending</ListItem></Appear>
+            <Appear><ListItem>Appendices (bonus)</ListItem></Appear>
+          </List>
+        </Slide>
+
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
             <Link href="https://survivejs.com/webpack/optimizing" textColor="white">Optimizing</Link>
