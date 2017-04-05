@@ -169,6 +169,18 @@ bake();`}
           <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
           </Heading>
+          <List>
+            <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
+            <Appear><ListItem>Enables <b>feature flags</b> and patterns like choosing a module <b>based on target</b></ListItem></Appear>
+            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node</ListItem></Appear>
+            <Appear><ListItem>Possible through Babel too</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
+          </Heading>
           <CodePane lang="javascript">
         {`let foo;
 
@@ -180,7 +192,7 @@ if (foo === 'bar') {
 // Free since you don't refer to "bar", ok to replace
 // Depending on "bar" is replaced, you'll get true/false
 // Minifier will drop if(false)
-if (bar === 'bar') {
+if (process.env.TARGET === 'development') {
   console.log('bar');
 }`}
           </CodePane>
@@ -188,13 +200,13 @@ if (bar === 'bar') {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
           </Heading>
           <List>
-            <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
-            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node</ListItem></Appear>
-            <Appear><ListItem>Possible through Babel too</ListItem></Appear>
-            <Appear><ListItem>Enables patterns like choosing a module based on target</ListItem></Appear>
+            <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
+            <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
+            <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
+            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module IDs (see also <code>NamedModulesPlugin</code> for development)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -210,18 +222,6 @@ if (bar === 'bar') {
   },
 },`}
           </CodePane>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames">Adding Hashes to Filenames</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
-            <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
-            <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
-            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module IDs</ListItem></Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -504,7 +504,6 @@ worker.postMessage({ text: state.text });`}
             <Appear><ListItem>Handle with or without webpack</ListItem></Appear>
             <Appear><ListItem><Link href="https://www.npmjs.com/package/gh-pages">gh-pages</Link> is handy for small projects that deploy to Git</ListItem></Appear>
             <Appear><ListItem>Plugins for deploying to S3 and other environments</ListItem></Appear>
-            <Appear><ListItem><code>__webpack_public_path__</code> can be used for a dynamic <code>publicPath</code></ListItem></Appear>
           </List>
         </Slide>
 
