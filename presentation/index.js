@@ -172,7 +172,6 @@ bake();`}
           <List>
             <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
             <Appear><ListItem>Enables <b>feature flags</b> and patterns like choosing a module <b>based on target</b></ListItem></Appear>
-            <Appear><ListItem><code>EnvironmentPlugin</code> does the same based on Node</ListItem></Appear>
             <Appear><ListItem>Possible through Babel too</ListItem></Appear>
           </List>
         </Slide>
