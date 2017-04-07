@@ -130,7 +130,7 @@ Entrypoints:
           <List>
             <Appear><ListItem>Minifying === How to convert code into a smaller form without losing anything essential?</ListItem></Appear>
             <Appear><ListItem>Certain unsafe transformations can break code</ListItem></Appear>
-            <Appear><ListItem><code>UglifyJsPlugin</code>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">babili-webpack-plugin</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">webpack-closure-compiler</Link></ListItem></Appear>
+            <Appear><ListItem><Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">UglifyJsPlugin</Link>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">babili-webpack-plugin</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">webpack-closure-compiler</Link></ListItem></Appear>
             <Appear><ListItem>CSS can be minified too through <Link href="https://www.npmjs.com/package/clean-css">clean-css</Link> and <Link href="http://cssnano.co">cssnano</Link></ListItem></Appear>
             <Appear><ListItem>Same for HTML. See <Link href="https://www.npmjs.com/package/posthtml">posthtml</Link></ListItem></Appear>
           </List>
@@ -161,7 +161,7 @@ bake();`}
           <List>
             <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
             <Appear><ListItem>Potentially possible for <Link href="https://github.com/simlrh/dead-css-loader">CSS Modules</Link> too</ListItem></Appear>
-            <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything except module definitions</ListItem></Appear>
+            <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything <b>except</b> module definitions</ListItem></Appear>
           </List>
         </Slide>
 
@@ -364,7 +364,7 @@ if (process.env.TARGET === 'development') {
           <List>
             <Appear><ListItem>Separate configurations (multi-compiler mode), separate entries, <Link href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Applications</Link> (PWA)</ListItem></Appear>
             <Appear><ListItem><code>HtmlWebpackPlugin</code> can do it</ListItem></Appear>
-            <Appear><ListItem>Going through separate entries allows code sharing and <Link href="https://github.com/webpack/webpack-pwa">PWA</Link></ListItem></Appear>
+            <Appear><ListItem>Separate entries allow code sharing and <Link href="https://github.com/webpack/webpack-pwa">PWA</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -428,10 +428,11 @@ req.keys(); // ['./demo.md', './another-demo.md']
 req.id; // 42
 
 // {title: 'Demo', body: '# Demo page\nDemo content\n\n'}
-const demoPage = req('./demo.md');
-
-// Partial imports are possible too
-const target = 'fi'
+const demoPage = req('./demo.md');`}
+          </CodePane>
+          <Layout>Partial imports are possible too</Layout>
+          <CodePane lang="javascript">
+        {`const target = 'fi'
 import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
           </CodePane>
         </Slide>
@@ -445,23 +446,17 @@ import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
       {`import Worker from 'worker-loader!./worker';
 
 const worker = new Worker();
-
 worker.addEventListener(
   'message',
-  ({ data: { text } }) => {
-    // Do something with text now
-  }
+  ({ data: { text } }) => console.log(\`Received message: \$\{text\}\`)
 );
-
-worker.postMessage({ text: state.text });`}
+worker.postMessage({ text: 'Hello world' });`}
           </CodePane>
           <div>Worker</div>
           <CodePane lang="javascript">
-      {`self.onmessage = ({ data: { text } }) => {
-  // Append the given text to itself to prove
-  // the worker does its thing.
-  self.postMessage({ text: text + text });
-};`}
+      {`self.onmessage = ({ data: { text } }) => (
+  self.postMessage({ text: text + text })
+);`}
           </CodePane>
         </Slide>
 
@@ -491,7 +486,7 @@ worker.postMessage({ text: state.text });`}
             <Appear><ListItem>Integration with Mocha, Karma, and others</ListItem></Appear>
             <Appear><ListItem>Consider generating <b>coverage</b> reports</ListItem></Appear>
             <Appear><ListItem>Jest - Minimal setup, webpack specific features need care</ListItem></Appear>
-            <Appear><ListItem><b>Mocking</b> possible through <Link href="https://www.npmjs.com/package/sinon">Sinon</Link>, <Link href="https://www.npmjs.com/package/inject-loader">inject-loader</Link>, and <Link href="https://www.npmjs.com/package/rewire-webpack">rewire-webpack</Link></ListItem></Appear>
+            <Appear><ListItem><b>Mock</b> through <Link href="https://www.npmjs.com/package/sinon">Sinon</Link>, <Link href="https://www.npmjs.com/package/inject-loader">inject-loader</Link>, and <Link href="https://www.npmjs.com/package/rewire-webpack">rewire-webpack</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -542,7 +537,7 @@ worker.postMessage({ text: state.text });`}
           </Heading>
           <List>
             <Appear><ListItem>Take care with version ranges</ListItem></Appear>
-            <Appear><ListItem>Consider locking dependencies (Yarn <code>lockfile</code>, npm <code>shrinkwrap</code>)</ListItem></Appear>
+            <Appear><ListItem>Lock dependencies - Yarn <code>lockfile</code>, npm <code>shrinkwrap</code></ListItem></Appear>
             <Appear><ListItem>Keep dependencies up to date ({"there's"} tooling for this)</ListItem></Appear>
           </List>
         </Slide>
@@ -553,8 +548,8 @@ worker.postMessage({ text: state.text });`}
           </Heading>
           <List>
             <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
-            <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code> through configuration</ListItem></Appear>
-            <Appear><ListItem><Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link> <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code> for globals</ListItem></Appear>
+            <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code></ListItem></Appear>
+            <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link> <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
             <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
           </List>
         </Slide>
@@ -577,7 +572,7 @@ worker.postMessage({ text: state.text });`}
           </Heading>
           <List>
             <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
-            <Appear><ListItem>Babel can be used to generate Node friendly build (separate files)</ListItem></Appear>
+            <Appear><ListItem>Babel can generate a Node friendly build (separate files)</ListItem></Appear>
             <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
           </List>
         </Slide>
@@ -758,7 +753,7 @@ module.exports = class DemoPlugin {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
+          <Heading size={2} fit>
             <Link href="https://survivejs.com/webpack/appendices/configuring-hmr">Configuring Hot Module Replacement</Link>
           </Heading>
           <List>
