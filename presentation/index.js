@@ -246,7 +246,7 @@ if (process.env.TARGET === 'development') {
           </List>
           <Appear><CodePane lang="javascript">
         {`{
-  recordsPath: 'records.json',
+  recordsPath: path.join(__dirname, 'records.json'),
 },`}
           </CodePane></Appear>
         </Slide>
