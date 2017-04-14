@@ -170,17 +170,10 @@ bake();`}
             <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
           </Heading>
           <List>
-            <Appear><ListItem><code>DefinePlugin</code> can replace free variables</ListItem></Appear>
-            <Appear><ListItem>Enables <b>feature flags</b> and patterns like choosing a module <b>based on target</b></ListItem></Appear>
-            <Appear><ListItem>Possible through Babel too</ListItem></Appear>
+            <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel too</ListItem></Appear>
+            <Appear><ListItem>Enables <b>feature flags</b> and choosing a module</ListItem></Appear>
           </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
-          </Heading>
-          <CodePane lang="javascript">
+          <Appear><CodePane lang="javascript">
         {`let foo;
 
 // Not free due to "foo" above, not ok to replace
@@ -189,12 +182,10 @@ if (foo === 'bar') {
 }
 
 // Free since you don't refer to "bar", ok to replace
-// Depending on "bar" is replaced, you'll get true/false
-// Minifier will drop if(false)
 if (process.env.TARGET === 'development') {
   console.log('bar');
 }`}
-          </CodePane>
+          </CodePane></Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -261,18 +252,6 @@ if (process.env.TARGET === 'development') {
             <Appear><ListItem>Use <code>--profile</code> to capture timing information</ListItem></Appear>
             <Appear><ListItem>Node API gives access to statistics too and you can find a couple of plugins</ListItem></Appear>
             <Appear><ListItem>Plenty of tools for analysis</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/performance">Performance</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Know what to optimize</ListItem></Appear>
-            <Appear><ListItem>Fast to implement tweaks first</ListItem></Appear>
-            <Appear><ListItem>More involved tweaks after</ListItem></Appear>
-            <Appear><ListItem>Measure impact</ListItem></Appear>
           </List>
         </Slide>
 
@@ -659,7 +638,6 @@ runLoaders({
             Loader API
           </Heading>
           <List>
-            <Appear><ListItem>Injected through <code>this</code> :(</ListItem></Appear>
             <Appear><ListItem>Examples: <code>this.async()</code>, <code>this.emitFile(url, content)</code></ListItem></Appear>
             <Appear><ListItem>Helpers in <Link href="https://www.npmjs.com/package/loader-utils">loader-utils</Link> and <Link href="https://www.npmjs.com/package/schema-utils">schema-utils</Link></ListItem></Appear>
             <Appear><ListItem>Consider using <Link href="https://www.npmjs.com/package/webpack-defaults">webpack-defaults</Link> as a starting point</ListItem></Appear>
