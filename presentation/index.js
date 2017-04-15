@@ -308,7 +308,7 @@ if (process.env.TARGET === 'development') {
             <Appear><ListItem>Not just web (default)</ListItem></Appear>
             <Appear><ListItem><code>webworker</code> (no hashing, no DOM manipulation)</ListItem></Appear>
             <Appear><ListItem><code>node</code> and <code>node-async</code> - Server Side Rendering</ListItem></Appear>
-            <Appear><ListItem>Desktop targets: <code>node-webkit</code>, <code>atom</code>, <code>electron</code> targets</ListItem></Appear>
+            <Appear><ListItem>Desktop targets: <code>node-webkit</code>, <code>electron</code> targets</ListItem></Appear>
             <Appear><ListItem>Library targets (UMD etc.)</ListItem></Appear>
           </List>
         </Slide>
