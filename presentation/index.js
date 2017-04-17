@@ -160,7 +160,6 @@ bake();`}
           </Heading>
           <List>
             <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
-            <Appear><ListItem>Potentially possible for <Link href="https://github.com/simlrh/dead-css-loader">CSS Modules</Link> too</ListItem></Appear>
             <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything <b>except</b> module definitions</ListItem></Appear>
           </List>
         </Slide>
@@ -171,7 +170,7 @@ bake();`}
           </Heading>
           <List>
             <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel too</ListItem></Appear>
-            <Appear><ListItem>Enables <b>feature flags</b> and choosing a module</ListItem></Appear>
+            <Appear><ListItem>Enables <b>feature flags</b> and choosing modules</ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
         {`let foo;
@@ -196,7 +195,6 @@ if (process.env.TARGET === 'development') {
             <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
             <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
             <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
-            <Appear><ListItem>Use <code>HashedModuleIdsPlugin</code> for stable module IDs (see also <code>NamedModulesPlugin</code> for development)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -212,6 +210,17 @@ if (process.env.TARGET === 'development') {
   },
 },`}
           </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Module Ids
+          </Heading>
+          <List>
+            <Appear><ListItem>Numbered ids by default (0, 1, 2, ...)</ListItem></Appear>
+            <Appear><ListItem><code>NamedModulesPlugin</code> returns paths to modules (useful for development!)</ListItem></Appear>
+            <Appear><ListItem><code>HashedModuleIdsPlugin</code> is the same except it hashes the paths (useful for production!)</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
