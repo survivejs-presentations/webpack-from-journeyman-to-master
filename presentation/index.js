@@ -161,6 +161,7 @@ bake();`}
           <List>
             <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
             <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything <b>except</b> module definitions</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/babel-plugin-transform-imports">babel-plugin-transform-imports</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -328,7 +329,6 @@ if (process.env.TARGET === 'development') {
           </Heading>
           <List>
             <Appear><ListItem>Webpack supports multiple library output options (<code>output</code>)</ListItem></Appear>
-            <Appear><ListItem>Generate <b>minified</b>/<b>non-minified</b> versions for standalone distribution</ListItem></Appear>
             <Appear><ListItem><b>UMD</b> is the most generic output target (CommonJS, AMD, global in one)</ListItem></Appear>
           </List>
         </Slide>
@@ -339,9 +339,8 @@ if (process.env.TARGET === 'development') {
           </Heading>
           <List>
             <Appear><ListItem>Controlled primarily through <code>output.library</code> and <code>output.libraryTarget</code></ListItem></Appear>
-            <Appear><ListItem>Defaults to <code>var</code></ListItem></Appear>
-            <Appear><ListItem>Other notable options include <code>window</code>, <code>commonjs</code>, <code>amd</code>, <code>umd</code>, and <code>jsonp</code></ListItem></Appear>
-            <Appear><ListItem>Also SystemJS compatible output is possible through <Link href="https://www.npmjs.com/package/webpack-system-register">webpack-system-register</Link></ListItem></Appear>
+            <Appear><ListItem>Defaults to <code>var</code>. Other options include <code>window</code>, <code>commonjs</code>, <code>amd</code>, <code>umd</code>, and <code>jsonp</code></ListItem></Appear>
+            <Appear><ListItem>SystemJS compatible output is possible through <Link href="https://www.npmjs.com/package/webpack-system-register">webpack-system-register</Link></ListItem></Appear>
           </List>
         </Slide>
 
@@ -378,7 +377,6 @@ if (process.env.TARGET === 'development') {
             <Appear><ListItem>Serve initial HTML, data payload instead of only SPA</ListItem></Appear>
             <Appear><ListItem>Potential for better performance and <b>Search Engine Optimization</b> (SEO) benefits</ListItem></Appear>
             <Appear><ListItem>Comes with technical complexity (how to handle styling, routing, frontend specific features)</ListItem></Appear>
-            <Appear><ListItem>Webpack can handle it all or just frontend</ListItem></Appear>
             <Appear><ListItem>Higher level abstractions: <Link href="https://www.npmjs.com/package/next">Next.js</Link>, <Link href="https://www.npmjs.com/package/isomorphic-webpack">isomorphic-webpack</Link></ListItem></Appear>
           </List>
         </Slide>
@@ -454,8 +452,7 @@ worker.postMessage({ text: 'Hello world' });`}
           </Heading>
           <List>
             <Appear><ListItem>i18n vs. l10n</ListItem></Appear>
-            <Appear><ListItem>Static or dynamic?</ListItem></Appear>
-            <Appear><ListItem>How to translate?</ListItem></Appear>
+            <Appear><ListItem>Static or dynamic? How to translate?</ListItem></Appear>
             <Appear><ListItem><code>I18nWebpackPlugin</code> and others</ListItem></Appear>
             <Appear><ListItem><code>console.log(__('Hello world'));</code></ListItem></Appear>
           </List>
@@ -734,8 +731,7 @@ module.exports = class DemoPlugin {
           <List>
             <Appear><ListItem><b>Task runners</b> and <b>bundlers</b></ListItem></Appear>
             <Appear><ListItem>They can completement each other. You can also defer task running to npm.</ListItem></Appear>
-            <Appear><ListItem>Evolution from generic tools like Make to specific ones like Browserify or webpack</ListItem></Appear>
-            <Appear><ListItem>A lot of development going on as new tools emerge</ListItem></Appear>
+            <Appear><ListItem>Evolution from generic tools to specific ones</ListItem></Appear>
           </List>
         </Slide>
 
