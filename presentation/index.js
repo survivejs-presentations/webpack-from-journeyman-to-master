@@ -534,7 +534,7 @@ worker.postMessage({ text: 'Hello world' });`}
           <List>
             <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
             <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code></ListItem></Appear>
-            <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link> <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
+            <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link>, <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
             <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
           </List>
         </Slide>
