@@ -170,16 +170,13 @@ bake();`}
             <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
           </Heading>
           <List>
-            <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel too</ListItem></Appear>
-            <Appear><ListItem>Enables <b>feature flags</b> and choosing modules</ListItem></Appear>
+            <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel can do this</ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
         {`let foo;
 
 // Not free due to "foo" above, not ok to replace
-if (foo === 'bar') {
-  console.log('bar');
-}
+if (foo === 'bar') { ... }
 
 // Free since you don't refer to "bar", ok to replace
 if (process.env.NODE_ENV === 'development') {
@@ -242,8 +239,8 @@ if (process.env.NODE_ENV === 'development') {
           </Heading>
           <List>
             <Appear><ListItem>Records allow to <b>keep track of module IDs</b> across builds</ListItem></Appear>
-            <Appear><ListItem>Necessary if you use <b>code splitting</b></ListItem></Appear>
             <Appear><ListItem>Problem: you have a new file (<b>records.json</b>) to manage</ListItem></Appear>
+            <Appear><ListItem><Link href="">Alternative name based approach by Tim Sebastian</Link></ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
         {`{
@@ -404,23 +401,20 @@ if (process.env.NODE_ENV === 'development') {
             <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
           </Heading>
           <CodePane lang="javascript">
-        {`const req = require.context(
-  'json-loader!yaml-frontmatter-loader!./pages',
-  true, // Load files recursively. Pass false to skip recursion.
-  /^\.\/.*\.md$/ // Match files ending with .md.
-);
+        {`// Load .md files recursively. false to skip recursion.
+const req = require.context('./pages', true, /^\.\/.*\.md$/);
 
 req.keys(); // ['./demo.md', './another-demo.md']
 req.id; // 42
 
-// {title: 'Demo', body: '# Demo page\nDemo content\n\n'}
+// {title: 'Demo', body: '# Demo page\\ncontent'}
 const demoPage = req('./demo.md');`}
           </CodePane>
-          <Layout>Partial imports are possible too</Layout>
-          <CodePane lang="javascript">
+          <Appear><div>Partial imports are possible too</div></Appear>
+          <Appear><CodePane lang="javascript">
         {`const target = 'fi'
 import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
-          </CodePane>
+          </CodePane></Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -438,12 +432,12 @@ worker.addEventListener(
 );
 worker.postMessage({ text: 'Hello world' });`}
           </CodePane>
-          <div>Worker</div>
-          <CodePane lang="javascript">
+          <Appear><div>Worker</div></Appear>
+          <Appear><CodePane lang="javascript">
       {`self.onmessage = ({ data: { text } }) => (
   self.postMessage({ text: text + text })
 );`}
-          </CodePane>
+          </CodePane></Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
