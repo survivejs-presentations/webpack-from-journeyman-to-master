@@ -182,7 +182,7 @@ if (foo === 'bar') {
 }
 
 // Free since you don't refer to "bar", ok to replace
-if (process.env.TARGET === 'development') {
+if (process.env.NODE_ENV === 'development') {
   console.log('bar');
 }`}
           </CodePane></Appear>
