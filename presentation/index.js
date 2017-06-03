@@ -240,7 +240,7 @@ if (process.env.NODE_ENV === 'development') {
           <List>
             <Appear><ListItem>Records allow to <b>keep track of module IDs</b> across builds</ListItem></Appear>
             <Appear><ListItem>Problem: you have a new file (<b>records.json</b>) to manage</ListItem></Appear>
-            <Appear><ListItem><Link href="">Alternative name based approach by Tim Sebastian</Link></ListItem></Appear>
+            <Appear><ListItem><Link href="https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31">Alternative name based approach by Tim Sebastian</Link></ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
         {`{
