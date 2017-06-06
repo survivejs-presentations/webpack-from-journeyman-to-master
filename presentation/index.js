@@ -39,6 +39,7 @@ require("./custom.css");
 
 const slideTransition = ["slide"];
 const images = mapValues({
+  loaderProcessing: require("../images/loader-processing.png"),
   survivejs: require("../images/survivejs.png"),
   pwa1: require("../images/pwa1.png"),
   pwa2: require("../images/pwa2.png")
@@ -593,9 +594,16 @@ worker.postMessage({ text: 'Hello world' });`}
             <Appear><ListItem><Link href="https://www.npmjs.com/package/loader-runner">loader-runner</Link> is a starting point</ListItem></Appear>
             <Appear><ListItem>Run against webpack to match environment (differs a little)</ListItem></Appear>
             <Appear><ListItem><code>module.exports = input => input + input;</code></ListItem></Appear>
-            <Appear><ListItem>pitch/execute === capture/bubble</ListItem></Appear>
             <Appear><ListItem>Both sync and async loaders are possible</ListItem></Appear>
+            <Appear><ListItem>pitch/execute === capture/bubble</ListItem></Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Loader Processing
+          </Heading>
+          <Image src={images.loaderProcessing} margin="40px auto" height="444px" />
         </Slide>
 
         <Slide transition={slideTransition}>
