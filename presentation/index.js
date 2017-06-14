@@ -350,6 +350,8 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Separate configurations (multi-compiler mode), separate entries, <Link href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Applications</Link> (PWA)</ListItem></Appear>
             <Appear><ListItem><code>HtmlWebpackPlugin</code> can do it</ListItem></Appear>
             <Appear><ListItem>Separate entries allow code sharing and <Link href="https://github.com/webpack/webpack-pwa">PWA</Link></ListItem></Appear>
+            <Appear><ListItem><Link href="https://developers.google.com/web/showcase/2017/twitter">Twitter Lite PWA case study</Link></ListItem></Appear>
+            <Appear><ListItem><Link href="https://workboxjs.org/">Workbox, a PWA starting point</Link></ListItem></Appear>
           </List>
         </Slide>
 
