@@ -78,10 +78,10 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear><ListItem>Optimizing</ListItem></Appear>
+            <Appear><ListItem>Packaging</ListItem></Appear>
             <Appear><ListItem>Output</ListItem></Appear>
-            <Appear><ListItem>Techniques</ListItem></Appear>
-            <Appear><ListItem>Packages</ListItem></Appear>
             <Appear><ListItem>Extending</ListItem></Appear>
+            <Appear><ListItem>Techniques (bonus)</ListItem></Appear>
             <Appear><ListItem>Appendices (bonus)</ListItem></Appear>
           </List>
         </Slide>
@@ -105,6 +105,9 @@ export default class Presentation extends React.Component {
   },
 },`}
           </CodePane>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Set up a performance budget</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -130,10 +133,11 @@ Entrypoints:
           </Heading>
           <List>
             <Appear><ListItem>Minifying === How to convert code into a smaller form without losing anything essential?</ListItem></Appear>
-            <Appear><ListItem>Certain unsafe transformations can break code</ListItem></Appear>
-            <Appear><ListItem><Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">UglifyJsPlugin</Link>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">babili-webpack-plugin</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">webpack-closure-compiler</Link></ListItem></Appear>
+            <Appear><ListItem>Certain unsafe transformations can <b>break</b> code</ListItem></Appear>
+            <Appear><ListItem><Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">UglifyJs</Link>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">Babili</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">Closure Compiler</Link></ListItem></Appear>
             <Appear><ListItem>CSS can be minified too through <Link href="https://www.npmjs.com/package/clean-css">clean-css</Link> and <Link href="http://cssnano.co">cssnano</Link></ListItem></Appear>
             <Appear><ListItem>Same for HTML. See <Link href="https://www.npmjs.com/package/posthtml">posthtml</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up <Link href="https://www.npmjs.com/package/babili-webpack-plugin">babili-webpack-plugin</Link> and study its implementation (can you see anything particular?)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -153,6 +157,9 @@ export { shake, bake };`}
 
 bake();`}
           </CodePane>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Set up a tree shaking demonstration as above</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -184,6 +191,9 @@ if (process.env.NODE_ENV === 'development') {
   console.log('bar');
 }`}
           </CodePane></Appear>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Set up <code>DefinePlugin</code> and free variables as above</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -194,6 +204,7 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
             <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
             <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Add hashing to filenames</ListItem></Appear>
           </List>
         </Slide>
 
@@ -216,7 +227,7 @@ if (process.env.NODE_ENV === 'development') {
             Module Ids
           </Heading>
           <List>
-            <Appear><ListItem>Numbered ids by default (0, 1, 2, ...)</ListItem></Appear>
+            <Appear><ListItem>Modules use numbered ids by default (0, 1, 2, ...)</ListItem></Appear>
             <Appear><ListItem><code>NamedModulesPlugin</code> returns paths to modules (useful for development!)</ListItem></Appear>
             <Appear><ListItem><code>HashedModuleIdsPlugin</code> is the same except it hashes the paths (useful for production!)</ListItem></Appear>
           </List>
@@ -248,19 +259,6 @@ if (process.env.NODE_ENV === 'development') {
   recordsPath: path.join(__dirname, 'records.json'),
 },`}
           </CodePane></Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">Analyzing Build Statistics</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>To know what your build consists of, generate <b>build statistics</b></ListItem></Appear>
-            <Appear><ListItem>Use <code>--json</code> for statistics</ListItem></Appear>
-            <Appear><ListItem>Use <code>--profile</code> to capture timing information</ListItem></Appear>
-            <Appear><ListItem>Node API gives access to statistics too and you can find a couple of plugins</ListItem></Appear>
-            <Appear><ListItem>Plenty of tools for analysis</ListItem></Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -299,6 +297,92 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Track <b>records</b> to reuse module ID info </ListItem></Appear>
             <Appear><ListItem><b>Analyze</b> build statistics to understand your builds</ListItem></Appear>
             <Appear><ListItem><b>Know</b> what to optimize and tweak accordingly while measuring impact</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/packages" textColor="white">Packaging</Link>
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Understanding SemVer
+          </Heading>
+          <List>
+            <Appear><ListItem>SemVer - <code>major.minor.patch</code></ListItem></Appear>
+            <Appear><ListItem>ComVer - <code>notCompatible.compatible</code></ListItem></Appear>
+            <Appear><ListItem>EmoVer - <code>emotional.notEmotional</code></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Take care with version ranges</ListItem></Appear>
+            <Appear><ListItem>Lock dependencies - Yarn <code>lockfile</code>, npm <code>shrinkwrap</code></ListItem></Appear>
+            <Appear><ListItem>Keep dependencies up to date ({"there's"} tooling for this)</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <Link href="https://survivejs.com/webpack/packages/consuming-techniques/">Consuming Packages with Webpack</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
+            <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code></ListItem></Appear>
+            <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link>, <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
+            <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
+            <Appear><ListItem>Publishing is easy but take care (SemVer again)</ListItem></Appear>
+            <Appear><ListItem>Publish only what is needed</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/semantic-release">semantic-release</Link>, <Link href="https://www.npmjs.com/package/dont-break">dont-break</Link></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <Link href="https://survivejs.com/webpack/packages/authoring-techniques">Authoring Packages with Webpack</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
+            <Appear><ListItem>Babel can generate a Node friendly build (separate files)</ListItem></Appear>
+            <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>Understand <b>SemVer</b> but also <b>lock</b> your dependencies</ListItem></Appear>
+            <Appear><ListItem>Keep dependencies up to date through tooling. Remember to test well for regressions</ListItem></Appear>
+            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> options</ListItem></Appear>
+            <Appear><ListItem>There are specific loaders and plugins to help with globals</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            Recap
+          </Heading>
+          <List>
+            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
+            <Appear><ListItem>Take care when publishing (do not break SemVer, publish only what is needed, automate)</ListItem></Appear>
+            <Appear><ListItem>Skip bundling <code>externals</code>, consider Babel build, <code>postinstall</code></ListItem></Appear>
           </List>
         </Slide>
 
@@ -390,195 +474,6 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Multiple options for <b>library</b> authors</ListItem></Appear>
             <Appear><ListItem>Multi-page setups are possible, PWAs the next step?</ListItem></Appear>
             <Appear><ListItem>SSR with webpack in front or also in server</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/techniques" textColor="white">Techniques</Link>
-          </Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
-          </Heading>
-          <CodePane lang="javascript">
-        {`// Load .md files recursively. false to skip recursion.
-const req = require.context('./pages', true, /^\.\/.*\.md$/);
-
-req.keys(); // ['./demo.md', './another-demo.md']
-req.id; // 42
-
-// {title: 'Demo', body: '# Demo page\\ncontent'}
-const demoPage = req('./demo.md');`}
-          </CodePane>
-          <Appear><div>Partial imports are possible too</div></Appear>
-          <Appear><CodePane lang="javascript">
-        {`const target = 'fi'
-import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
-          </CodePane></Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
-          </Heading>
-          <div>Host</div>
-          <CodePane lang="javascript">
-      {`import Worker from 'worker-loader!./worker';
-
-const worker = new Worker();
-worker.addEventListener(
-  'message',
-  ({ data: { text } }) => console.log(\`Received message: \$\{text\}\`)
-);
-worker.postMessage({ text: 'Hello world' });`}
-          </CodePane>
-          <Appear><div>Worker</div></Appear>
-          <Appear><CodePane lang="javascript">
-      {`self.onmessage = ({ data: { text } }) => (
-  self.postMessage({ text: text + text })
-);`}
-          </CodePane></Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/techniques/i18n">Internationalization</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>i18n vs. l10n</ListItem></Appear>
-            <Appear><ListItem>Static or dynamic? How to translate?</ListItem></Appear>
-            <Appear><ListItem><code>I18nWebpackPlugin</code> and others</ListItem></Appear>
-            <Appear><ListItem><code>console.log(__('Hello world'));</code></ListItem></Appear>
-          </List>
-          <Appear><CodePane lang="json">
-                  {`{
-  "Hello world": "Terve maailma"
-}`}
-          </CodePane></Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/techniques/testing">Testing</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Integration with Mocha, Karma, and others</ListItem></Appear>
-            <Appear><ListItem>Consider generating <b>coverage</b> reports</ListItem></Appear>
-            <Appear><ListItem>Jest - Minimal setup, webpack specific features need care</ListItem></Appear>
-            <Appear><ListItem><b>Mock</b> through <Link href="https://www.npmjs.com/package/sinon">Sinon</Link>, <Link href="https://www.npmjs.com/package/inject-loader">inject-loader</Link>, and <Link href="https://www.npmjs.com/package/rewire-webpack">rewire-webpack</Link></ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/techniques/deploying">Deploying Applications</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Handle with or without webpack</ListItem></Appear>
-            <Appear><ListItem><Link href="https://www.npmjs.com/package/gh-pages">gh-pages</Link> is handy for small projects that deploy to Git</ListItem></Appear>
-            <Appear><ListItem>Plugins for deploying to S3 and other environments</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem><b>Dynamic loading</b> for extra flexibility</ListItem></Appear>
-            <Appear><ListItem><b>Web workers</b> through a loader</ListItem></Appear>
-            <Appear><ListItem>Multiple options for <b>i18n</b></ListItem></Appear>
-            <Appear><ListItem>Interation with multiple <b>testing</b> tools</ListItem></Appear>
-            <Appear><ListItem><b>Deploy</b> with or without webpack</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/packages" textColor="white">Packages</Link>
-          </Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Understanding SemVer
-          </Heading>
-          <List>
-            <Appear><ListItem>SemVer - <code>major.minor.patch</code></ListItem></Appear>
-            <Appear><ListItem>ComVer - <code>notCompatible.compatible</code></ListItem></Appear>
-            <Appear><ListItem>EmoVer - <code>emotional.notEmotional</code></ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/packages/consuming">Consuming Packages</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Take care with version ranges</ListItem></Appear>
-            <Appear><ListItem>Lock dependencies - Yarn <code>lockfile</code>, npm <code>shrinkwrap</code></ListItem></Appear>
-            <Appear><ListItem>Keep dependencies up to date ({"there's"} tooling for this)</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2} fit>
-            <Link href="https://survivejs.com/webpack/packages/consuming-techniques/">Consuming Packages with Webpack</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> fields</ListItem></Appear>
-            <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code></ListItem></Appear>
-            <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link>, <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
-            <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/packages/authoring">Authoring Packages</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
-            <Appear><ListItem>Publishing is easy but take care (SemVer again)</ListItem></Appear>
-            <Appear><ListItem>Publish only what is needed</ListItem></Appear>
-            <Appear><ListItem><Link href="https://www.npmjs.com/package/semantic-release">semantic-release</Link>, <Link href="https://www.npmjs.com/package/dont-break">dont-break</Link></ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2} fit>
-            <Link href="https://survivejs.com/webpack/packages/authoring-techniques">Authoring Packages with Webpack</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
-            <Appear><ListItem>Babel can generate a Node friendly build (separate files)</ListItem></Appear>
-            <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>Understand <b>SemVer</b> but also <b>lock</b> your dependencies</ListItem></Appear>
-            <Appear><ListItem>Keep dependencies up to date through tooling. Remember to test well for regressions</ListItem></Appear>
-            <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> options</ListItem></Appear>
-            <Appear><ListItem>There are specific loaders and plugins to help with globals</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
-            <Appear><ListItem>Take care when publishing (do not break SemVer, publish only what is needed, automate)</ListItem></Appear>
-            <Appear><ListItem>Skip bundling <code>externals</code>, consider Babel build, <code>postinstall</code></ListItem></Appear>
           </List>
         </Slide>
 
@@ -724,43 +619,111 @@ module.exports = class DemoPlugin {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/appendices" textColor="white">Appendices</Link>
+            <Link href="https://survivejs.com/webpack/techniques" textColor="white">Techniques</Link>
           </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/appendices/comparison">Comparison of Build Tools</Link>
+            <Link href="https://survivejs.com/webpack/techniques/dynamic-loading">Dynamic Loading</Link>
+          </Heading>
+          <CodePane lang="javascript">
+        {`// Load .md files recursively. false to skip recursion.
+const req = require.context('./pages', true, /^\.\/.*\.md$/);
+
+req.keys(); // ['./demo.md', './another-demo.md']
+req.id; // 42
+
+// {title: 'Demo', body: '# Demo page\\ncontent'}
+const demoPage = req('./demo.md');`}
+          </CodePane>
+          <Appear><div>Partial imports are possible too</div></Appear>
+          <Appear><CodePane lang="javascript">
+        {`const target = 'fi'
+import(\`translations/\$\{target\}.json\`).then(...).catch(...);`}
+          </CodePane></Appear>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/techniques/web-workers">Web Workers</Link>
+          </Heading>
+          <div>Host</div>
+          <CodePane lang="javascript">
+      {`import Worker from 'worker-loader!./worker';
+
+const worker = new Worker();
+worker.addEventListener(
+  'message',
+  ({ data: { text } }) => console.log(\`Received message: \$\{text\}\`)
+);
+worker.postMessage({ text: 'Hello world' });`}
+          </CodePane>
+          <Appear><div>Worker</div></Appear>
+          <Appear><CodePane lang="javascript">
+      {`self.onmessage = ({ data: { text } }) => (
+  self.postMessage({ text: text + text })
+);`}
+          </CodePane></Appear>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/techniques/i18n">Internationalization</Link>
           </Heading>
           <List>
-            <Appear><ListItem><b>Task runners</b> and <b>bundlers</b></ListItem></Appear>
-            <Appear><ListItem>They can completement each other. You can also defer task running to npm.</ListItem></Appear>
-            <Appear><ListItem>Evolution from generic tools to specific ones</ListItem></Appear>
+            <Appear><ListItem>i18n vs. l10n</ListItem></Appear>
+            <Appear><ListItem>Static or dynamic? How to translate?</ListItem></Appear>
+            <Appear><ListItem><code>I18nWebpackPlugin</code> and others</ListItem></Appear>
+            <Appear><ListItem><code>console.log(__('Hello world'));</code></ListItem></Appear>
+          </List>
+          <Appear><CodePane lang="json">
+                  {`{
+  "Hello world": "Terve maailma"
+}`}
+          </CodePane></Appear>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/techniques/testing">Testing</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Integration with Mocha, Karma, and others</ListItem></Appear>
+            <Appear><ListItem>Consider generating <b>coverage</b> reports</ListItem></Appear>
+            <Appear><ListItem>Jest - Minimal setup, webpack specific features need care</ListItem></Appear>
+            <Appear><ListItem><b>Mock</b> through <Link href="https://www.npmjs.com/package/sinon">Sinon</Link>, <Link href="https://www.npmjs.com/package/inject-loader">inject-loader</Link>, and <Link href="https://www.npmjs.com/package/rewire-webpack">rewire-webpack</Link></ListItem></Appear>
           </List>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2} fit>
-            <Link href="https://survivejs.com/webpack/appendices/configuring-hmr">Configuring Hot Module Replacement</Link>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/techniques/deploying">Deploying Applications</Link>
           </Heading>
           <List>
-            <Appear><ListItem>HMR allows patching of the application while it is running</ListItem></Appear>
-            <Appear><ListItem>Run WDS in <b>hot</b> mode</ListItem></Appear>
-            <Appear><ListItem>Provide hot updates through webpack using <code>HotModuleReplacementPlugin</code></ListItem></Appear>
-            <Appear><ListItem>The client has to hook into WDS scripts (WDS <code>inline</code>)</ListItem></Appear>
-            <Appear><ListItem>The client has to implement the HMR interface through <code>module.hot.accept</code></ListItem></Appear>
+            <Appear><ListItem>Handle with or without webpack</ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/gh-pages">gh-pages</Link> is handy for small projects that deploy to Git</ListItem></Appear>
+            <Appear><ListItem>Plugins for deploying to S3 and other environments</ListItem></Appear>
           </List>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2} fit>
-            <Link href="https://survivejs.com/webpack/appendices/hmr-with-react">Hot Module Replacement with React</Link>
+          <Heading size={2}>
+            Recap
           </Heading>
           <List>
-            <Appear><ListItem><Link href="https://www.npmjs.com/package/react-hot-loader">react-hot-loader</Link> does the hard part</ListItem></Appear>
-            <Appear><ListItem>You have to connect it with Babel, webpack, and application</ListItem></Appear>
-            <Appear><ListItem>react-hot-loader 3 is still in beta - Rough edges to work around.</ListItem></Appear>
+            <Appear><ListItem><b>Dynamic loading</b> for extra flexibility</ListItem></Appear>
+            <Appear><ListItem><b>Web workers</b> through a loader</ListItem></Appear>
+            <Appear><ListItem>Multiple options for <b>i18n</b></ListItem></Appear>
+            <Appear><ListItem>Interation with multiple <b>testing</b> tools</ListItem></Appear>
+            <Appear><ListItem><b>Deploy</b> with or without webpack</ListItem></Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/appendices" textColor="white">Appendices</Link>
+          </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -771,28 +734,6 @@ module.exports = class DemoPlugin {
             <Appear><ListItem>Skip rules locally (exceptions). Do not overuse, though.</ListItem></Appear>
             <Appear><ListItem>Enable specific environments either through local overrides or through configuration</ListItem></Appear>
             <Appear><ListItem>Extend through plugin interface</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/appendices/searching-with-react">Searching with React</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Indexing static content through <Link href="http://lunrjs.com/">lunr</Link> is enough</ListItem></Appear>
-            <Appear><ListItem>Good use case for <code>import()</code></ListItem></Appear>
-            <Appear><ListItem>Enough for small static sites</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/appendices/troubleshooting">Troubleshooting</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Follow a debugging process. This captures most problems.</ListItem></Appear>
-            <Appear><ListItem>If you found a real issue, take care in reporting it well</ListItem></Appear>
-            <Appear><ListItem>Figure out whether the problem is on your side or in dependencies</ListItem></Appear>
           </List>
         </Slide>
 
