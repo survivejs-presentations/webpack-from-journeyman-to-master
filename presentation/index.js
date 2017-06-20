@@ -82,7 +82,6 @@ export default class Presentation extends React.Component {
             <Appear><ListItem>Output</ListItem></Appear>
             <Appear><ListItem>Extending</ListItem></Appear>
             <Appear><ListItem>Techniques (bonus)</ListItem></Appear>
-            <Appear><ListItem>Appendices (bonus)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -717,23 +716,6 @@ worker.postMessage({ text: 'Hello world' });`}
             <Appear><ListItem>Multiple options for <b>i18n</b></ListItem></Appear>
             <Appear><ListItem>Interation with multiple <b>testing</b> tools</ListItem></Appear>
             <Appear><ListItem><b>Deploy</b> with or without webpack</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
-            <Link href="https://survivejs.com/webpack/appendices" textColor="white">Appendices</Link>
-          </Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/appendices/customizing-eslint">Customizing ESLint</Link>
-          </Heading>
-          <List>
-            <Appear><ListItem>Skip rules locally (exceptions). Do not overuse, though.</ListItem></Appear>
-            <Appear><ListItem>Enable specific environments either through local overrides or through configuration</ListItem></Appear>
-            <Appear><ListItem>Extend through plugin interface</ListItem></Appear>
           </List>
         </Slide>
 
