@@ -5,7 +5,7 @@ import mapValues from "lodash/mapValues";
 // Import Spectacle Core tags
 import {
   Appear,
-  //BlockQuote,
+  BlockQuote,
   //Cite,
   CodePane,
   Deck,
@@ -17,7 +17,7 @@ import {
   List,
   ListItem,
   //Markdown,
-  //Quote,
+  Quote,
   Slide
   //Table,
   //TableRow,
@@ -104,9 +104,6 @@ export default class Presentation extends React.Component {
   },
 },`}
           </CodePane>
-          <List>
-            <Appear><ListItem><b>Exercise:</b> Set up a performance budget</ListItem></Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -124,6 +121,15 @@ Entrypoints:
 ,      app.css
 ...`}
           </CodePane>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Set up a performance budget</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="black">
+          <BlockQuote>
+            <Quote>Minifying === How to convert code into a smaller form without losing anything essential?</Quote>
+          </BlockQuote>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -131,7 +137,6 @@ Entrypoints:
             <Link href="https://survivejs.com/webpack/optimizing/minifying">Minifying</Link>
           </Heading>
           <List>
-            <Appear><ListItem>Minifying === How to convert code into a smaller form without losing anything essential?</ListItem></Appear>
             <Appear><ListItem>Certain unsafe transformations can <b>break</b> code</ListItem></Appear>
             <Appear><ListItem><Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">UglifyJs</Link>, <Link href="https://www.npmjs.com/package/babili-webpack-plugin">Babili</Link>, <Link href="https://www.npmjs.com/package/webpack-closure-compiler">Closure Compiler</Link></ListItem></Appear>
             <Appear><ListItem>CSS can be minified too through <Link href="https://www.npmjs.com/package/clean-css">clean-css</Link> and <Link href="http://cssnano.co">cssnano</Link></ListItem></Appear>
@@ -150,15 +155,12 @@ const bake = () => console.log('bake');
 
 export { shake, bake };`}
           </CodePane>
-          <Layout>shake it with</Layout>
+          <div>shake it with</div>
           <CodePane lang="javascript">
         {`import { bake } from './shake';
 
 bake();`}
           </CodePane>
-          <List>
-            <Appear><ListItem><b>Exercise:</b> Set up a tree shaking demonstration as above</ListItem></Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -169,15 +171,16 @@ bake();`}
             <Appear><ListItem>Relies on ES6 module definition</ListItem></Appear>
             <Appear><ListItem>If you author packages, set <code>module</code> field in <b>package.json</b>, precompile everything <b>except</b> module definitions</ListItem></Appear>
             <Appear><ListItem><Link href="https://www.npmjs.com/package/babel-plugin-transform-imports">babel-plugin-transform-imports</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up a tree shaking demonstration as in the example and examine the output</ListItem></Appear>
           </List>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Environment Variables</Link>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">Feature Flags</Link>
           </Heading>
           <List>
-            <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel can do this</ListItem></Appear>
+            <Appear><ListItem><code>DefinePlugin</code> replaces free variables. Babel can do this too</ListItem></Appear>
           </List>
           <Appear><CodePane lang="javascript">
         {`let foo;
@@ -191,7 +194,7 @@ if (process.env.NODE_ENV === 'development') {
 }`}
           </CodePane></Appear>
           <List>
-            <Appear><ListItem><b>Exercise:</b> Set up <code>DefinePlugin</code> and free variables as above</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up <code>DefinePlugin</code> and replace as above</ListItem></Appear>
           </List>
         </Slide>
 
@@ -307,8 +310,9 @@ if (process.env.NODE_ENV === 'development') {
           </Heading>
           <List>
             <Appear><ListItem>Take care with version ranges</ListItem></Appear>
-            <Appear><ListItem>Lock dependencies - Yarn <code>lockfile</code>, npm <code>shrinkwrap</code></ListItem></Appear>
+            <Appear><ListItem>Lock dependencies - Yarn <code>lockfile</code>, npm <code>package-lock</code></ListItem></Appear>
             <Appear><ListItem>Keep dependencies up to date ({"there's"} tooling for this)</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Generate a lockfile for the project</ListItem></Appear>
           </List>
         </Slide>
 
@@ -321,6 +325,7 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Mark packages you want to load otherwise as <code>externals</code></ListItem></Appear>
             <Appear><ListItem>Globals - <Link href="https://www.npmjs.com/package/imports-loader">imports-loader</Link>, <Link href="https://www.npmjs.com/package/expose-loader">expose-loader</Link>, and <code>ProvidePlugin</code></ListItem></Appear>
             <Appear><ListItem>Use <code>IgnorePlugin</code> to skip unnecessary modules or patch with <code>ContextReplacementPlugin</code></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Inject global jQuery to your application</ListItem></Appear>
           </List>
         </Slide>
 
@@ -344,6 +349,7 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Avoid bundling dependencies to distribution bundle if you generate one through <code>externals</code></ListItem></Appear>
             <Appear><ListItem>Babel can generate a Node friendly build (separate files)</ListItem></Appear>
             <Appear><ListItem>If you consume from Git, write a <code>postinstall</code> script</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up Babel and <code>postinstall</code> to generate a build if the project is consumed outside of npm</ListItem></Appear>
           </List>
         </Slide>
 
@@ -356,17 +362,6 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Keep dependencies up to date through tooling. Remember to test well for regressions</ListItem></Appear>
             <Appear><ListItem>Patch faulty dependencies through <code>resolve</code> options</ListItem></Appear>
             <Appear><ListItem>There are specific loaders and plugins to help with globals</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>Maintain high quality metadata for your packages</ListItem></Appear>
-            <Appear><ListItem>Take care when publishing (do not break SemVer, publish only what is needed, automate)</ListItem></Appear>
-            <Appear><ListItem>Skip bundling <code>externals</code>, consider Babel build, <code>postinstall</code></ListItem></Appear>
           </List>
         </Slide>
 
@@ -417,9 +412,18 @@ if (process.env.NODE_ENV === 'development') {
           <List>
             <Appear><ListItem>Separate configurations (multi-compiler mode), separate entries, <Link href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Applications</Link> (PWA)</ListItem></Appear>
             <Appear><ListItem><code>HtmlWebpackPlugin</code> can do it</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up a multi-page build as in the book</ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/output/multiple-pages">Progressive Web Apps</Link>
+          </Heading>
+          <List>
             <Appear><ListItem>Separate entries allow code sharing and <Link href="https://github.com/webpack/webpack-pwa">PWA</Link></ListItem></Appear>
             <Appear><ListItem><Link href="https://developers.google.com/web/showcase/2017/twitter">Twitter Lite PWA case study</Link></ListItem></Appear>
-            <Appear><ListItem><Link href="https://workboxjs.org/">Workbox, a PWA starting point</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Study <Link href="https://github.com/webpack/webpack-pwa">webpack-pwa</Link> example and examine the setup</ListItem></Appear>
           </List>
         </Slide>
 
@@ -446,6 +450,8 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Potential for better performance and <b>Search Engine Optimization</b> (SEO) benefits</ListItem></Appear>
             <Appear><ListItem>Comes with technical complexity (how to handle styling, routing, frontend specific features)</ListItem></Appear>
             <Appear><ListItem>Higher level abstractions: <Link href="https://www.npmjs.com/package/next">Next.js</Link>, <Link href="https://www.npmjs.com/package/isomorphic-webpack">isomorphic-webpack</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Go through <Link href="https://survivejs.com/webpack/output/server-side-rendering/">the book SSR tutorial</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Compile server code through webpack as well*</ListItem></Appear>
           </List>
         </Slide>
 
@@ -467,17 +473,10 @@ if (process.env.NODE_ENV === 'development') {
           </Heading>
         </Slide>
 
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/extending/loaders">Extending with Loaders</Link>
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/extending/loaders" textColor="white">Extending with Loaders</Link>
           </Heading>
-          <List>
-            <Appear><ListItem><Link href="https://www.npmjs.com/package/loader-runner">loader-runner</Link> is a starting point</ListItem></Appear>
-            <Appear><ListItem>Run against webpack to match environment (differs a little)</ListItem></Appear>
-            <Appear><ListItem><code>module.exports = input => input + input;</code></ListItem></Appear>
-            <Appear><ListItem>Both sync and async loaders are possible</ListItem></Appear>
-            <Appear><ListItem>pitch/execute === capture/bubble</ListItem></Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -485,6 +484,9 @@ if (process.env.NODE_ENV === 'development') {
             Loader Processing
           </Heading>
           <Image src={images.loaderProcessing} margin="40px auto" height="444px" />
+          <List>
+            <Appear><ListItem>pitch/execute === capture/bubble</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -535,15 +537,22 @@ runLoaders({
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/extending/plugins">Extending with Plugins</Link>
+            <Link href="https://survivejs.com/webpack/extending/loaders">Extending with Loaders</Link>
           </Heading>
           <List>
-            <Appear><ListItem>Plugins provide access to <code>compiler</code> and <code>compilation</code></ListItem></Appear>
-            <Appear><ListItem>Webpack itself is a collection of plugins (<Link href="https://www.npmjs.com/package/tapable">tapable</Link>)</ListItem></Appear>
-            <Appear><ListItem>Development has to happen against webpack itself</ListItem></Appear>
-            <Appear><ListItem><code>compilation.warnings</code>, <code>compilation.errors</code></ListItem></Appear>
-            <Appear><ListItem>Plugins can have plugins too: <code>HtmlWebpackPlugin</code></ListItem></Appear>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/loader-runner">loader-runner</Link> is a starting point</ListItem></Appear>
+            <Appear><ListItem>Run against webpack to match environment (differs a little)</ListItem></Appear>
+            <Appear><ListItem><code>module.exports = input => input + input;</code></ListItem></Appear>
+            <Appear><ListItem>Both sync and async loaders are possible</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Implement <Link href="https://survivejs.com/webpack/extending/loaders">the book loader examples</Link></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Implement a loader that parses YAML frontmatter and Markdown and converts those to a structure you can consume through JavaScript*</ListItem></Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link href="https://survivejs.com/webpack/extending/plugins" textColor="white">Extending with Plugins</Link>
+          </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -590,6 +599,20 @@ module.exports = class DemoPlugin {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/extending/plugins">Extending with Plugins</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem>Plugins provide access to <code>compiler</code> and <code>compilation</code></ListItem></Appear>
+            <Appear><ListItem>Webpack itself is a collection of plugins (<Link href="https://www.npmjs.com/package/tapable">tapable</Link>)</ListItem></Appear>
+            <Appear><ListItem>Development has to happen against webpack itself</ListItem></Appear>
+            <Appear><ListItem><code>compilation.warnings</code>, <code>compilation.errors</code></ListItem></Appear>
+            <Appear><ListItem>Plugins can have plugins too: <code>HtmlWebpackPlugin</code></ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Implement <Link href="https://survivejs.com/webpack/extending/plugins">the book plugin examples</Link></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
             Recap
           </Heading>
           <List>
@@ -597,7 +620,6 @@ module.exports = class DemoPlugin {
             <Appear><ListItem>Event model follows the DOM (capture/bubble)</ListItem></Appear>
             <Appear><ListItem>Sync/async processing possible. Enough for basic transformations.</ListItem></Appear>
             <Appear><ListItem>Plugins give greater access through <b>runtime hooks</b> (<code>compiler</code>, <code>compilation</code>)</ListItem></Appear>
-            <Appear><ListItem>Plugins can have plugins too</ListItem></Appear>
           </List>
         </Slide>
 
