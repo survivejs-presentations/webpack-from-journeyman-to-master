@@ -203,7 +203,6 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Integrating a hash to a filename allows cache busting</ListItem></Appear>
             <Appear><ListItem>Example: <code>app.d587bbd6e38337f5accd.js</code></ListItem></Appear>
             <Appear><ListItem>Common placeholders: <code>[name]</code>, <code>[ext]</code>, <code>[chunkhash]</code>, <code>[contenthash]</code> (<code>ExtractTextPlugin</code> only)</ListItem></Appear>
-            <Appear><ListItem><b>Exercise:</b> Add hashing to filenames</ListItem></Appear>
           </List>
         </Slide>
 
@@ -219,6 +218,9 @@ if (process.env.NODE_ENV === 'development') {
   },
 },`}
           </CodePane>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Add hashing to filenames</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -229,6 +231,8 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Modules use numbered ids by default (0, 1, 2, ...)</ListItem></Appear>
             <Appear><ListItem><code>NamedModulesPlugin</code> returns paths to modules (useful for development!)</ListItem></Appear>
             <Appear><ListItem><code>HashedModuleIdsPlugin</code> is the same except it hashes the paths (useful for production!)</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Add <code>NamedModulesPlugin</code> for development</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Add <code>HashedModuleIdsPlugin</code> for production</ListItem></Appear>
           </List>
         </Slide>
 
@@ -241,6 +245,7 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Manifest in a <b>vendor</b> bundle can lead to invalidation if <b>app</b> bundle changes!</ListItem></Appear>
             <Appear><ListItem>Extract to a file or inline to HTML through a plugin</ListItem></Appear>
             <Appear><ListItem><code>CommonsChunkPlugin</code> can do the job</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Separate manifest</ListItem></Appear>
           </List>
         </Slide>
 
@@ -258,6 +263,10 @@ if (process.env.NODE_ENV === 'development') {
   recordsPath: path.join(__dirname, 'records.json'),
 },`}
           </CodePane></Appear>
+          <List>
+            <Appear><ListItem><b>Exercise:</b> Set up records</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Study {`Tim's`} approach and implement it*</ListItem></Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -270,32 +279,8 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem><b>Skip polyfills</b> during development</ListItem></Appear>
             <Appear><ListItem><b>Disable portions</b> of an application you {"don't"} need</ListItem></Appear>
             <Appear><ListItem>Use <b>DLLs</b> for vendor dependencies (less to rebundle)</ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>Set a <b>performance budget</b> to track bundle sizes (terminating a build is possible)</ListItem></Appear>
-            <Appear><ListItem><b>Minify</b> code to serve smaller payloads (gzip is another win)</ListItem></Appear>
-            <Appear><ListItem>You can <b>minify</b> CSS and HTML too</ListItem></Appear>
-            <Appear><ListItem><b>Tree shake</b> unnecessary pieces of code (ES6 modules only)</ListItem></Appear>
-            <Appear><ListItem>Use <b>environment variables</b> to implement <b>target specific tweaks</b> and <b>feature flags</b></ListItem></Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
-          </Heading>
-          <List>
-            <Appear><ListItem>Add <b>hashes</b> to filenames to bust caches</ListItem></Appear>
-            <Appear><ListItem>Separate a <b>manifest</b> to improve caching behavior</ListItem></Appear>
-            <Appear><ListItem>Track <b>records</b> to reuse module ID info </ListItem></Appear>
-            <Appear><ListItem><b>Analyze</b> build statistics to understand your builds</ListItem></Appear>
-            <Appear><ListItem><b>Know</b> what to optimize and tweak accordingly while measuring impact</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Set up Babel to do less work during development</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Try <Link href="https://www.npmjs.com/package/happypack">happypack</Link> with Babel*</ListItem></Appear>
           </List>
         </Slide>
 
