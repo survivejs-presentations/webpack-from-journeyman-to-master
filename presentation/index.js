@@ -12,7 +12,7 @@ import {
   //Fill,
   Heading,
   Image,
-  Layout,
+  //Layout,
   Link,
   List,
   ListItem,
@@ -234,8 +234,7 @@ if (process.env.NODE_ENV === 'development') {
             <Appear><ListItem>Modules use numbered ids by default (0, 1, 2, ...)</ListItem></Appear>
             <Appear><ListItem><code>NamedModulesPlugin</code> returns paths to modules (useful for development!)</ListItem></Appear>
             <Appear><ListItem><code>HashedModuleIdsPlugin</code> is the same except it hashes the paths (useful for production!)</ListItem></Appear>
-            <Appear><ListItem><b>Exercise:</b> Add <code>NamedModulesPlugin</code> for development</ListItem></Appear>
-            <Appear><ListItem><b>Exercise:</b> Add <code>HashedModuleIdsPlugin</code> for production</ListItem></Appear>
+            <Appear><ListItem><b>Exercise:</b> Add <code>NamedModulesPlugin</code> to the setup</ListItem></Appear>
           </List>
         </Slide>
 
@@ -714,15 +713,26 @@ worker.postMessage({ text: 'Hello world' });`}
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
-            Recap
+          <Heading size={2} fit>
+            <Link href="https://survivejs.com/webpack/appendices/configuring-hmr">Configuring Hot Module Replacement</Link>
           </Heading>
           <List>
-            <Appear><ListItem><b>Dynamic loading</b> for extra flexibility</ListItem></Appear>
-            <Appear><ListItem><b>Web workers</b> through a loader</ListItem></Appear>
-            <Appear><ListItem>Multiple options for <b>i18n</b></ListItem></Appear>
-            <Appear><ListItem>Interation with multiple <b>testing</b> tools</ListItem></Appear>
-            <Appear><ListItem><b>Deploy</b> with or without webpack</ListItem></Appear>
+            <Appear><ListItem>HMR allows patching of the application while it is running</ListItem></Appear>
+            <Appear><ListItem>Run WDS in <b>hot</b> mode</ListItem></Appear>
+            <Appear><ListItem>Provide hot updates through webpack using <code>HotModuleReplacementPlugin</code></ListItem></Appear>
+            <Appear><ListItem>The client has to hook into WDS scripts (WDS <code>inline</code>)</ListItem></Appear>
+            <Appear><ListItem>The client has to implement the HMR interface through <code>module.hot.accept</code></ListItem></Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <Link href="https://survivejs.com/webpack/appendices/hmr-with-react">Hot Module Replacement with React</Link>
+          </Heading>
+          <List>
+            <Appear><ListItem><Link href="https://www.npmjs.com/package/react-hot-loader">react-hot-loader</Link> does the hard part</ListItem></Appear>
+            <Appear><ListItem>You have to connect it with Babel, webpack, and application</ListItem></Appear>
+            <Appear><ListItem>react-hot-loader 3 is still in beta - Rough edges to work around.</ListItem></Appear>
           </List>
         </Slide>
 
