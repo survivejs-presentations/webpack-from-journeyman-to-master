@@ -1,0 +1,5 @@
+{ result: [ 'foobar\nfoobar\n' ],
+  resourceBuffer: <Buffer 66 6f 6f 62 61 72 0a>,
+  cacheable: true,
+  fileDependencies: [ './demo.txt' ],
+  contextDependencies: [] }
