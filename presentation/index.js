@@ -186,7 +186,7 @@ export default class Presentation extends React.Component {
               <ListItem>
                 <b>Exercise:</b> Set up{" "}
                 <Link href="https://www.npmjs.com/package/uglifyjs-webpack-plugin">
-                  uglifyjs-webpack-plugin-webpack-plugin
+                  uglifyjs-webpack-plugin
                 </Link>
               </ListItem>
             </Appear>
